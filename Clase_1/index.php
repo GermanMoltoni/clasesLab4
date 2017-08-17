@@ -1,12 +1,8 @@
 <?php
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-require "./EntidadesApi/UserApi.php";
-require "./EntidadesApi/ParkingApi.php";
-require "./EntidadesApi/OperationApi.php";
-require "./EntidadesApi/Auth.php";
-require "./EntidadesApi/Imagen.php";
-require "./EntidadesApi/EstadisticaApi.php";
+require "./ClasesApi/UsuarioApi.php";
+require "./ClasesApi/FormMDW.php";
 $config['displayErrorDetails'] = true;
  
 require './vendor/autoload.php';
@@ -29,17 +25,17 @@ $app->group('/usuario', function () {
                 ->add(\AuthUser::class.':verificarUsuario');
     $this->put('/habilitar', \UserApi::class .':HabilitarUserApi')
                 ->add(\AuthUser::class.':verificarUsuario');*/
-    $this->post('', \UserApi::class .':AltaUsuarioApi')
-                ->add(\AuthUser::class.':FormUser');
+    $this->post('', \UsuarioApi::class .':AltaApi')
+                ->add(\FowmMDW::class.':FormUser');
    /* $this->post('/modificar', \UserApi::class .':ModificarUsuarioApi')
                 ->add(\Imagen::class.':ModificarImagenUsuario')
                 ->add(\AuthUser::class.':ModifFormUser');*/
 });//->add(\AuthUser::class.':admin');
-$app->post('/login',\UserApi::class . ':LoginUserApi')
+/*$app->post('/login',\UserApi::class . ':LoginUserApi')
                 ->add(\AuthUser::class.':VerificarFormLogin')
                 ->add(\AuthUser::class.':login');
 $app->get('/logout',\UserApi::class  .':LogoutUserApi')
                 ->add(\AuthUser::class.':users');
-
+*/
 $app->run();
 ?>
