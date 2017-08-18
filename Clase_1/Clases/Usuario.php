@@ -20,11 +20,6 @@
                 $this->habilitado = $habilitado;
              }
         }
-        /*
-        *   Guarda los datos del usuario en la base de datos.
-        *
-        *
-        */
         function Alta(){
             if (self::GetUsuarioByMail($this->mail) == false)
             {
@@ -40,11 +35,6 @@
             }
             return false;
         }
-        /*
-        *   modifica el estado del usuario, habilitado o suspendido.
-        *   return true si lo logra. false si no lo  encuentra o no se realiza la accion
-        *
-        */
         static function Baja($id)
         {
             if (($user = self::GetUsuarioPorId($id)) != false)
@@ -60,9 +50,9 @@
         }
         static function Listar(){
             $objDB = AccesoDatos::DameUnObjetoAcceso();
-		    $consulta = $objDB->RetornarConsulta("SELECT mail,nombre,apellido,password,usuario,id,habilitado FROM usuario");
+		    $consulta = $objDB->RetornarConsulta("SELECT mail,nombre,apellido,usuario,id,habilitado FROM usuario");
             $consulta->execute();
-            $retorno = $consulta->fetchAll(PDO::FETCH_CLASS,"usuario");
+            $retorno = $consulta->fetchAll(PDO::FETCH_OBJ);
             if(count($retorno) == 0)
                 return false;
             return $retorno;
@@ -70,10 +60,10 @@
         static function GetUsuarioPorId($id)
         {
             $objDB = AccesoDatos::DameUnObjetoAcceso();
-		    $consulta = $objDB->RetornarConsulta("SELECT mail,nombre,apellido,password,usuario,id,habilitado FROM usuario WHERE id = :id ");
+		    $consulta = $objDB->RetornarConsulta("SELECT mail,nombre,apellido,usuario,id,habilitado FROM usuario WHERE id = :id ");
 		    $consulta->bindValue(':id',$id, PDO::PARAM_INT);
             $consulta->execute();
-            $retorno = $consulta->fetchAll(PDO::FETCH_CLASS,"usuario");
+            $retorno = $consulta->fetchAll(PDO::FETCH_OBJ);
             if(count($retorno) == 0)
                 return false;
             return $retorno[0];
@@ -92,12 +82,14 @@
             if (($user = self::GetUsuarioPorId($this->id)) != false)
             {
                 $objDB = AccesoDatos::DameUnObjetoAcceso();
-                $consulta = $objDB->RetornarConsulta("UPDATE `usuario` SET `mail`=:mail,`nombre`=:nombre, `apellido`=:apellido,`password`=:password,`usuario`=:usuario WHERE id=:Id");
+                $consulta = $objDB->RetornarConsulta("UPDATE `usuario` SET `mail`=:mail,`nombre`=:nombre, `apellido`=:apellido,`password`=:password,`usuario`=:usuario WHERE id=:id");
                 $consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
                 $consulta->bindValue(':apellido',$this->apellido, PDO::PARAM_STR);
                 $consulta->bindValue(':password',$this->password, PDO::PARAM_STR);
                 $consulta->bindValue(':mail',$this->mail, PDO::PARAM_STR);
                 $consulta->bindValue(':usuario',$this->usuario, PDO::PARAM_STR);
+                $consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
+
                 return $consulta->execute();
             }
             return false;

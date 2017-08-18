@@ -27,6 +27,17 @@ public static function ModifFormUser($request, $response, $next){
         return $next($request->withAttribute('user',$user_data), $response);
 }
 
+public static function GetParamIdUsuario($request, $response, $next){
+        if(($id = $request->getParam('id')) != null)
+            return $next($request->withAttribute('id',filter_var($id, FILTER_SANITIZE_STRING)), $response);
+        return $next($request, $response);
+}
+public static function GetIdUsuario($request, $response, $next){
+        if(($id = $request->getParam('id')) != null)
+            return $next($request->withAttribute('id',$id), $response);
+        return $response->withJson(array('msg'=>'Faltan Datos'),201);
+
+}
 
 
 }

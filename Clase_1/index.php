@@ -27,9 +27,10 @@ $app->group('/usuario', function () {
                 ->add(\AuthUser::class.':verificarUsuario');*/
     $this->post('', \UsuarioApi::class .':AltaApi')
                 ->add(\FowmMDW::class.':FormUser');
-   /* $this->post('/modificar', \UserApi::class .':ModificarUsuarioApi')
-                ->add(\Imagen::class.':ModificarImagenUsuario')
-                ->add(\AuthUser::class.':ModifFormUser');*/
+    $this->post('/', \UsuarioApi::class .':ModificarApi')
+                ->add(\FowmMDW::class.':ModifFormUser');
+    $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FowmMDW::class.':GetParamIdUsuario');
+    $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FowmMDW::class.':GetIdUsuario');
 });//->add(\AuthUser::class.':admin');
 /*$app->post('/login',\UserApi::class . ':LoginUserApi')
                 ->add(\AuthUser::class.':VerificarFormLogin')
