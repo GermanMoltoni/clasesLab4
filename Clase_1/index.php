@@ -22,12 +22,6 @@ $app->group('/usuario', function () {
                 ->add(\FowmMDW::class.':ModifFormUser');
     $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FowmMDW::class.':GetParamIdUsuario');
     $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FowmMDW::class.':GetIdUsuario');
-});//->add(\AuthUser::class.':admin');
-/*$app->post('/login',\UserApi::class . ':LoginUserApi')
-                ->add(\AuthUser::class.':VerificarFormLogin')
-                ->add(\AuthUser::class.':login');
-$app->get('/logout',\UserApi::class  .':LogoutUserApi')
-                ->add(\AuthUser::class.':users');
-*/
+}); 
 $app->run();
 ?>

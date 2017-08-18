@@ -27,11 +27,24 @@
 		        $consulta = $objDB->RetornarConsulta("INSERT INTO `usuario`(`mail`,`nombre`, `apellido`,`password`, `habilitado`,`usuario`) VALUES (:mail, :nombre, :apellido, :password, :habilitado,:usuario)");
 		        $consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);
                 $consulta->bindValue(':apellido',$this->apellido, PDO::PARAM_STR);
-                $consulta->bindValue(':password',$this->password, PDO::PARAM_STR);
+                $consulta->bindValue(':password',md5($this->password), PDO::PARAM_STR);
                 $consulta->bindValue(':mail',$this->mail, PDO::PARAM_STR);
                 $consulta->bindValue(':habilitado',true, PDO::PARAM_STR);
                 $consulta->bindValue(':usuario',$this->usuario, PDO::PARAM_STR);
                 return $consulta->execute();  
+            }
+            return false;
+        }
+        static function CambiarEstado($id)
+        {
+            if (($user = self::GetUsuarioPorId($id)) != false)
+            {
+                $objDB = AccesoDatos::DameUnObjetoAcceso(); 
+                $consulta = $objDB->RetornarConsulta("UPDATE `usuario` SET `habilitado` = :habilitado WHERE `id` = :id");
+		        $consulta->bindValue(':id',$id, PDO::PARAM_INT);
+                $consulta->bindValue(':habilitado',!$user->habilitado, PDO::PARAM_STR);
+                $consulta->execute();
+                return true;
             }
             return false;
         }
@@ -42,7 +55,7 @@
                 $objDB = AccesoDatos::DameUnObjetoAcceso(); 
                 $consulta = $objDB->RetornarConsulta("UPDATE `usuario` SET `habilitado` = :habilitado WHERE `id` = :Id");
 		        $consulta->bindValue(':Id',$id, PDO::PARAM_INT);
-                $consulta->bindValue(':habilitado',!$user->habilitado, PDO::PARAM_STR);
+                $consulta->bindValue(':habilitado',false, PDO::PARAM_STR);
                 $consulta->execute();
                 return true;
             }
