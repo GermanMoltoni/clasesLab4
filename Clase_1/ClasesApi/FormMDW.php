@@ -1,6 +1,6 @@
 <?php
 require_once './Clases/Usuario.php';
-class FowmMDW{
+class FormMDW{
 public static function FormUser($request, $response, $next){
         $data = $request->getParsedBody();
         if(!isset($data['mail'],$data['nombre'],$data['apellido'],$data['usuario'],$data['password']))
@@ -27,6 +27,15 @@ public static function ModifFormUser($request, $response, $next){
         return $next($request->withAttribute('user',$user_data), $response);
 }
 
+public static function FormLogin($request, $response, $next){
+        $data = $request->getParsedBody();
+        if(!isset($data['usuario'],$data['password']))
+            return $response->withJson(array('msg'=>'Faltan Datos'),201);
+        $user_data=array();
+        $user_data['usuario'] = filter_var($data['usuario'], FILTER_SANITIZE_STRING);
+        $user_data['password'] = filter_var($data['password'], FILTER_SANITIZE_STRING);
+        return $next($request->withAttribute('user',$user_data), $response);
+}
 public static function GetParamIdUsuario($request, $response, $next){
         if(($id = $request->getParam('id')) != null)
             return $next($request->withAttribute('id',filter_var($id, FILTER_SANITIZE_STRING)), $response);
@@ -36,7 +45,6 @@ public static function GetIdUsuario($request, $response, $next){
         if(($id = $request->getParam('id')) != null)
             return $next($request->withAttribute('id',$id), $response);
         return $response->withJson(array('msg'=>'Faltan Datos'),201);
-
 }
 
 

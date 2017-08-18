@@ -21,7 +21,7 @@
              }
         }
         function Alta(){
-            if (self::GetUsuarioByMail($this->mail) == false)
+            if (self::GetByUsuario($this->usuario) == false)
             {
                 $objDB = AccesoDatos::DameUnObjetoAcceso();
 		        $consulta = $objDB->RetornarConsulta("INSERT INTO `usuario`(`mail`,`nombre`, `apellido`,`password`, `habilitado`,`usuario`) VALUES (:mail, :nombre, :apellido, :password, :habilitado,:usuario)");
@@ -81,10 +81,10 @@
                 return false;
             return $retorno[0];
         }
-        static function GetUsuarioByMail($mail){
+        static function GetByUsuario($usuario){
             $objDB = AccesoDatos::DameUnObjetoAcceso();
-		    $consulta = $objDB->RetornarConsulta("SELECT mail,nombre,apellido,password,usuario,id,habilitado FROM usuario WHERE mail=:Mail");
-		    $consulta->bindValue(':Mail',$mail, PDO::PARAM_STR);
+		    $consulta = $objDB->RetornarConsulta("SELECT mail,nombre,apellido,password,usuario,id,habilitado FROM usuario WHERE usuario=:usuario");
+		    $consulta->bindValue(':usuario',$usuario, PDO::PARAM_STR);
             $consulta->execute();
             $retorno = $consulta->fetchAll(PDO::FETCH_CLASS,"usuario");
             if(count($retorno) == 0)

@@ -17,11 +17,15 @@ $app->add(function ($req, $res, $next) {
 });
 $app->group('/usuario', function () {
     $this->post('', \UsuarioApi::class .':AltaApi')
-                ->add(\FowmMDW::class.':FormUser');
+                ->add(\FormMDW::class.':FormUser');
     $this->post('/', \UsuarioApi::class .':ModificarApi')
-                ->add(\FowmMDW::class.':ModifFormUser');
-    $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FowmMDW::class.':GetParamIdUsuario');
-    $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FowmMDW::class.':GetIdUsuario');
+                ->add(\FormMDW::class.':ModifFormUser');
+    $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamIdUsuario');
+    $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FormMDW::class.':GetIdUsuario');
 }); 
+
+
+$app->post('/login',\LoginApi::class.':LoginUserApi')->add(\FormMDW::class.':FormLogin');
+
 $app->run();
 ?>
