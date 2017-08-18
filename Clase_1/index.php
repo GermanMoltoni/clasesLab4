@@ -2,6 +2,10 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 require "./ClasesApi/UsuarioApi.php";
+require "./ClasesApi/MDWAuth.php";
+
+require "./ClasesApi/LoginApi.php";
+
 require "./ClasesApi/FormMDW.php";
 $config['displayErrorDetails'] = true;
  
@@ -22,7 +26,7 @@ $app->group('/usuario', function () {
                 ->add(\FormMDW::class.':ModifFormUser');
     $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamIdUsuario');
     $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FormMDW::class.':GetIdUsuario');
-}); 
+})->add(\AuthMDW::class.':VerificarUsuario'); 
 
 
 $app->post('/login',\LoginApi::class.':LoginUserApi')->add(\FormMDW::class.':FormLogin');
