@@ -16,15 +16,6 @@ $app->add(function ($req, $res, $next) {
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 });
 $app->group('/usuario', function () {
-  /*  $this->get('/listar',\UserApi::class . ':ListaUserApi');
-    $this->get('/listarLogs', \UserApi::class .':ListaLogUserApi')
-                ->add(\AuthUser::class.':verificarFormTiempo');
-    $this->delete('/baja', \UserApi::class .':BajaUserApi')
-                ->add(\AuthUser::class.':verificarUsuario');
-    $this->put('/suspender', \UserApi::class .':SuspenderUserApi')
-                ->add(\AuthUser::class.':verificarUsuario');
-    $this->put('/habilitar', \UserApi::class .':HabilitarUserApi')
-                ->add(\AuthUser::class.':verificarUsuario');*/
     $this->post('', \UsuarioApi::class .':AltaApi')
                 ->add(\FowmMDW::class.':FormUser');
     $this->post('/', \UsuarioApi::class .':ModificarApi')
