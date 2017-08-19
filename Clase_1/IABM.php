@@ -7,6 +7,11 @@ interface IABM{
     public function Modificar(); 
     public function Listar();
 }
-
+interface IABMApi{ 
+    public function AltaApi(); 
+ public function BajaApi(); 
+ public function ModificarApi(); 
+ public function ListarApi();
+}
 
 ?>

@@ -12,14 +12,16 @@ class AuthMDW{
                     if(($user = Usuario::GetByUsuario($data->usuario)) != false && $user->habilitado == 1) 
                         return $next($request->withAttribute('user',$data),$response);
                     return  $response->withJson(array('msg'=>"Usuario No habilitado"),201);   
-                        
             }
+            throw new Exception();
         }
         catch(Exception $e)
         {   
             return  $response->withJson(array('error'=>"Se requiere iniciar Sesion"));   
         }
     }
+    
+
 }
 
 ?>
