@@ -63,5 +63,31 @@ public static function ModifFormRol($request, $response, $next){
     $rol['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
     return $next($request->withAttribute('rol',$rol), $response);
 }
+
+public static function FormRolUsuario($request, $response, $next){
+    $data = $request->getParsedBody();
+    if(!isset($data['id_usuario'],$data['id_rol']))
+        return $response->withJson(array('msg'=>'Faltan Datos'),201);
+    $rol=array();
+    $rol['id_usuario'] = filter_var($data['id_usuario'], FILTER_SANITIZE_STRING);
+    $rol['id_rol'] = filter_var($data['id_rol'], FILTER_SANITIZE_STRING);
+    return $next($request->withAttribute('rol',$rol), $response);
+}
+
+public static function ModifFormRolUsuario($request, $response, $next){
+    $data = $request->getParsedBody();
+    if(!isset($data['id_usuario'],$data['id_rol'],$data['id']))
+        return $response->withJson(array('msg'=>'Faltan Datos'),201);
+    $rol=array();
+    $rol['id_usuario'] = filter_var($data['id_usuario'], FILTER_SANITIZE_STRING);
+    $rol['id_rol'] = filter_var($data['id_rol'], FILTER_SANITIZE_STRING);
+    
+    $rol['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
+    return $next($request->withAttribute('rol',$rol), $response);
+}
+
+
+
+
 }
 ?>

@@ -7,7 +7,7 @@ require "./ClasesApi/RolApi.php";
 require "./ClasesApi/MDWAuth.php";
 
 require "./ClasesApi/LoginApi.php";
-
+require "./ClasesApi/RolUsuarioApi.php";
 require "./ClasesApi/FormMDW.php";
 $config['displayErrorDetails'] = true;
  
@@ -26,11 +26,16 @@ $app->group('/usuario', function () {
     $this->post('/', \UsuarioApi::class .':ModificarApi')->add(\FormMDW::class.':ModifFormUser');
     $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamId');
     $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FormMDW::class.':GetId');
-    
+    $this->group('/roles', function () {
+        $this->post('', \RolUsuarioApi::class .':AltaApi')->add(\FormMDW::class.':FormRolUsuario');
+        $this->get('',\RolUsuarioApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamId');
+        $this->post('/', \RolUsuarioApi::class .':ModificarApi')->add(\FormMDW::class.':ModifFormRolUsuario');
+        $this->delete('', \RolUsuarioApi::class.':BajaApi')->add(\FormMDW::class.':GetId');
+    });
 })->add(\AuthMDW::class.':VerificarUsuario'); 
 
 
-
+ 
 
 $app->group('/roles', function () {
     $this->post('', \RolApi::class .':AltaApi')->add(\FormMDW::class.':FormRol');
