@@ -2,6 +2,8 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 require "./ClasesApi/UsuarioApi.php";
+require "./ClasesApi/RolApi.php";
+
 require "./ClasesApi/MDWAuth.php";
 
 require "./ClasesApi/LoginApi.php";
@@ -20,14 +22,22 @@ $app->add(function ($req, $res, $next) {
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 });
 $app->group('/usuario', function () {
-    $this->post('', \UsuarioApi::class .':AltaApi')
-                ->add(\FormMDW::class.':FormUser');
-    $this->post('/', \UsuarioApi::class .':ModificarApi')
-                ->add(\FormMDW::class.':ModifFormUser');
-    $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamIdUsuario');
-    $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FormMDW::class.':GetIdUsuario');
+    $this->post('', \UsuarioApi::class .':AltaApi')->add(\FormMDW::class.':FormUser');
+    $this->post('/', \UsuarioApi::class .':ModificarApi')->add(\FormMDW::class.':ModifFormUser');
+    $this->get('',\UsuarioApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamId');
+    $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FormMDW::class.':GetId');
+    
 })->add(\AuthMDW::class.':VerificarUsuario'); 
 
+
+
+
+$app->group('/roles', function () {
+    $this->post('', \RolApi::class .':AltaApi')->add(\FormMDW::class.':FormRol');
+    $this->get('',\RolApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamId');
+    $this->post('/', \RolApi::class .':ModificarApi')->add(\FormMDW::class.':ModifFormRol');
+    $this->delete('', \RolApi::class.':BajaApi')->add(\FormMDW::class.':GetId');
+})->add(\AuthMDW::class.':VerificarUsuario'); 
 
 $app->post('/login',\LoginApi::class.':LoginUserApi')->add(\FormMDW::class.':FormLogin');
 

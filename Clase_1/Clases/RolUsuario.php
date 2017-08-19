@@ -1,28 +1,31 @@
 <?
 require_once "./Clases/AccesoDatos.php";
-class Rol{
+class RolUsuario{
     public $id;
-    public $descripcion;
-    function __construct($descripcion=NULL,$id=NULL){
-        if($descripcion !=NULL){
+    public $id_usuario;
+    public $id_rol;
+    function __construct($id_usuario=NULL,$id_rol=NULL,$id=NULL){
+        if($id_usuario !=NULL && $id_rol !=NULL){
             $this->id=$id;
-            $this->descripcion=$descripcion;
+            $this->id_rol=$id_rol;
+            $this->id_usuario=$id_usuario;
         }
     }
     function Alta(){
         if(($rol = self::GetRolByDescripcion($this->descripcion)) ==false){
             $objDB = AccesoDatos::DameUnObjetoAcceso();
-            $consulta = $objDB->RetornarConsulta("INSERT INTO `tipo_roles`(`descripcion`) VALUES (:descripcion)");
-            $consulta->bindValue(':descripcion',$this->descripcion, PDO::PARAM_STR);
+            $consulta = $objDB->RetornarConsulta("INSERT INTO `roles`(`id_rol`,`id_usuario`) VALUES (:id_rol,:id_usuario)");
+            $consulta->bindValue(':id_rol',$this->id_rol, PDO::PARAM_STR);
+            $consulta->bindValue(':id_usuario',$this->id_usuario, PDO::PARAM_STR);
             return $consulta->execute();
         }
         return false;
     }
     static function Listar(){
         $objDB = AccesoDatos::DameUnObjetoAcceso();
-        $consulta = $objDB->RetornarConsulta("SELECT descripcion,id FROM tipo_roles");
+        $consulta = $objDB->RetornarConsulta("SELECT id_usuario,id_rol,id FROM roles");
         $consulta->execute();
-        $retorno = $consulta->fetchAll(PDO::FETCH_CLASS,"rol");
+        $retorno = $consulta->fetchAll(PDO::FETCH_CLASS,"roluser");
         if(count($retorno) == 0)
             return false;
         return $retorno;

@@ -36,17 +36,32 @@ public static function FormLogin($request, $response, $next){
         $user_data['password'] = filter_var($data['password'], FILTER_SANITIZE_STRING);
         return $next($request->withAttribute('user',$user_data), $response);
 }
-public static function GetParamIdUsuario($request, $response, $next){
+public static function GetParamId($request, $response, $next){
         if(($id = $request->getParam('id')) != null)
             return $next($request->withAttribute('id',filter_var($id, FILTER_SANITIZE_STRING)), $response);
         return $next($request, $response);
 }
-public static function GetIdUsuario($request, $response, $next){
+public static function GetId($request, $response, $next){
         if(($id = $request->getParam('id')) != null)
             return $next($request->withAttribute('id',$id), $response);
         return $response->withJson(array('msg'=>'Faltan Datos'),201);
 }
-
-
+public static function FormRol($request, $response, $next){
+    $data = $request->getParsedBody();
+    if(!isset($data['descripcion']))
+        return $response->withJson(array('msg'=>'Faltan Datos'),201);
+    $rol=array();
+    $rol['descripcion'] = filter_var($data['descripcion'], FILTER_SANITIZE_STRING);
+    return $next($request->withAttribute('rol',$rol), $response);
+}
+public static function ModifFormRol($request, $response, $next){
+    $data = $request->getParsedBody();
+    if(!isset($data['descripcion'],$data['id']))
+        return $response->withJson(array('msg'=>'Faltan Datos'),201);
+    $rol=array();
+    $rol['descripcion'] = filter_var($data['descripcion'], FILTER_SANITIZE_STRING);
+    $rol['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
+    return $next($request->withAttribute('rol',$rol), $response);
+}
 }
 ?>
