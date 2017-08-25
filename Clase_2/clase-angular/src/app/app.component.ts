@@ -9,5 +9,6 @@ export class AppComponent {
   title = 'Clase Angular';
   // Instalar bootstrap y modificara .angular-cli.json para incluir el archivo
   //ng g component componentes/login
+  //inputs [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}"
   // para agregar imagenes poner en assets de .angular-cli.json
 }
