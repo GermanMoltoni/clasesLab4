@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
 import { MenuComponent } from './componentes/menu/menu.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { ErrorComponent } from './componentes/error/error.component';
 let routes: Routes = [
   {path:'adivina',component:AdivinaElNumeroComponent},
   {path:'agilidad',component:AgilidadAritmeticaComponent},
@@ -18,7 +20,9 @@ let routes: Routes = [
     AppComponent,
     AdivinaElNumeroComponent,
     AgilidadAritmeticaComponent,
-    MenuComponent
+    MenuComponent,
+    LoginComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,FormsModule,RouterModule.forRoot(routes)

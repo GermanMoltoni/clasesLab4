@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router }   from '@angular/router';//rutas
+import { ActivatedRoute,Router }   from '@angular/router';//rutas
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,8 @@ import { Router }   from '@angular/router';//rutas
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
   }
