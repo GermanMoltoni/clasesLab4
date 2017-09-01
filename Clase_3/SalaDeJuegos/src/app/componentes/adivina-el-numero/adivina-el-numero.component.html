@@ -1,0 +1,6 @@
+<h1>{{juego.nombre}}</h1>
+<label for='num'>Numero Ingresado</label>
+<input  name='num' type="text" [(ngModel)]='juego.nIngresado'/>
+<p [hidden]='!juego.gano'>Gano</p>
+<button (click)='juego.GenerarNuevo()' >Nuevo</button>
+<button (click)='juego.Verificar()' >Verificar</button>
