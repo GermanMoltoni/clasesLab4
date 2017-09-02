@@ -13,7 +13,8 @@ let routes: Routes = [
   {path:'adivina',component:AdivinaElNumeroComponent},
   {path:'agilidad',component:AgilidadAritmeticaComponent},
   {path:'menu',component:MenuComponent},
-  
+  {path:'login',component:LoginComponent},
+  {path:'',component:ErrorComponent},
 ];
 @NgModule({
   declarations: [
