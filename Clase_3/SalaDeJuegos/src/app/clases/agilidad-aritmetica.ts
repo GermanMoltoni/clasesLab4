@@ -6,8 +6,8 @@ export class AgilidadAritmetica extends Juego{
     private operador:string;
     public nIngresado:number;
     public resultado:number;
-    constructor(nombre:string){
-        super(nombre);
+    constructor(nombre:string,jugador:string){
+        super(nombre,jugador);
     }
     GenerarNuevo(){
         this.numUno = Math.round(Math.random()*100);
@@ -36,6 +36,7 @@ export class AgilidadAritmetica extends Juego{
     }
     Verificar(){
         if(this.gano = this.nIngresado == this.resultado)
-            this.tiempo = new Date().getTime() - this.tiempo.getTime();
+            this.tiempo = (new Date().getTime() - this.tiempo.getTime());
+        
     }
 }

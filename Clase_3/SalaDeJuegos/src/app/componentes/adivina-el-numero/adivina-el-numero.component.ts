@@ -8,7 +8,7 @@ import {AdivinaElNumero} from '../../clases/adivina-el-numero';
 export class AdivinaElNumeroComponent implements OnInit {
   private juego:AdivinaElNumero;
   constructor() { 
-    this.juego = new AdivinaElNumero('Adivina el numero');
+    this.juego = new AdivinaElNumero('Adivina el numero',localStorage.getItem("nombre"));
   }
   ngOnInit() {
   }

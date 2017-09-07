@@ -9,8 +9,7 @@ import {AgilidadAritmetica } from '../../clases/agilidad-aritmetica';
 export class AgilidadAritmeticaComponent implements OnInit {
   private juego : AgilidadAritmetica;
   constructor() { 
-    this.juego = new AgilidadAritmetica('Agilidad Aritmetica');
-    
+    this.juego = new AgilidadAritmetica('Agilidad Aritmetica',localStorage.getItem("nombre"));
   }
 
   ngOnInit() {

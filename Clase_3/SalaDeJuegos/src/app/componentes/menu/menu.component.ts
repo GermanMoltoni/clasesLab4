@@ -17,6 +17,10 @@ export class MenuComponent implements OnInit {
       else
         this.router.navigate(['login']);
     }
+    ListadoResultados(){
+              this.router.navigate(['listadoresultados']);
+
+    }
   Juego(nombre:string){
     switch (nombre) {
       case 'agilidad':

@@ -7,7 +7,8 @@ import { ActivatedRoute,Router }   from '@angular/router';//rutas
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+    private usuario:string;
+    
   constructor(private route: ActivatedRoute,
     private router: Router) { }
 
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   }
   onClick(){
     localStorage.setItem('token','true');
+        localStorage.setItem('usuario',this.usuario);
+
     this.router.navigate(['menu']);
   }
 

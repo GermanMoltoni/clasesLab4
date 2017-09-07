@@ -9,12 +9,14 @@ import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/a
 import { MenuComponent } from './componentes/menu/menu.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { ErrorComponent } from './componentes/error/error.component';
+import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
 let routes: Routes = [
   {path:'adivina',component:AdivinaElNumeroComponent},
   {path:'agilidad',component:AgilidadAritmeticaComponent},
   {path:'menu',component:MenuComponent},
+  {path:'listadoresultados',component:ListadoDeResultadosComponent},
   {path:'login',component:LoginComponent},
-  {path:'',component:ErrorComponent},
+ // {path:'',component:ErrorComponent},
 ];
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ let routes: Routes = [
     AgilidadAritmeticaComponent,
     MenuComponent,
     LoginComponent,
-    ErrorComponent
+    ErrorComponent,
+    ListadoDeResultadosComponent
   ],
   imports: [
     BrowserModule,FormsModule,RouterModule.forRoot(routes)
