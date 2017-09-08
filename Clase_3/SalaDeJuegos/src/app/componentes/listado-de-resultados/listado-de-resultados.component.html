@@ -1,0 +1,23 @@
+<table class="table table-condensed">
+  <thead class="bg-danger">
+  <tr>
+    <th>
+      Juego
+    </th>
+    <th>Nombre</th>
+    <th>
+      Resultado
+    </th>
+  </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let juego of listado'>
+        <td>{{juego.nombre}}</td>
+                <td>{{juego.jugador}}</td>
+
+        <td *ngIf='juego.gano else perdio'>Gano</td>
+        <ng-template #perdio><td>Perdio</td></ng-template>
+      </tr>
+    </tbody>
+
+</table>
