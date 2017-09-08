@@ -1,9 +1,0 @@
-<h1>{{juego.nombre}}</h1>
-<input  name='numUno' type="text" [ngModel]='juego.numUno'/>
-<input  name='oper' type="text" [ngModel]='juego.operador'/>
-<input  name='numDos' type="text" [(ngModel)]='juego.numDos'/><br>
-<input  name='ingreso' type="text" [(ngModel)]='juego.nIngresado'/>
-
-<p [hidden]='!juego.gano'>Gano<br>{{juego.tiempo}}</p>
-<button (click)='juego.GenerarNuevo()' >Nuevo</button>
-<button (click)='juego.Verificar()' >Verificar</button>
