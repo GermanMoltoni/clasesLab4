@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule,Routes }   from '@angular/router';//rutas
 import { JuegosService } from './servicios/juegos.service';
+import { RutasModule } from './modulos/rutas/rutas.module';
 
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
@@ -14,18 +15,7 @@ import { ListadoDeResultadosComponent } from './componentes/listado-de-resultado
 import { MenuDeListadoComponent } from './componentes/menu-de-listado/menu-de-listado.component';
 import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/adivina-mas-listado.component';
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
-let routes: Routes = [
-  {path:'adivina',component:AdivinaElNumeroComponent},
-  {path:'agilidad',component:AgilidadAritmeticaComponent},
-  {path:'menu',component:MenuComponent},
-  {path:'listadoresultados',component:ListadoDeResultadosComponent},
-    {path:'menulistado',component:MenuDeListadoComponent},
-    {path:'agilidadmaslistado',component:AgilidadMasListadoComponent},
-    {path:'adivinamaslistado',component:AdivinaMasListadoComponent},
 
-  {path:'login',component:LoginComponent},
- // {path:'',component:ErrorComponent},
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +30,7 @@ let routes: Routes = [
     AgilidadMasListadoComponent
   ],
   imports: [
-    BrowserModule,FormsModule,RouterModule.forRoot(routes)
+    BrowserModule,FormsModule,RutasModule
   ],
   providers: [JuegosService],
   bootstrap: [AppComponent]
