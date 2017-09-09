@@ -15,20 +15,20 @@ import { AdivinaMasListadoComponent } from '../../componentes/adivina-mas-listad
 import { AgilidadMasListadoComponent } from '../../componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 const routes: Routes = [
   {path:'adivina',component:AdivinaElNumeroComponent},
- /* {path:'agilidad',component:AgilidadAritmeticaComponent},
+   {path:'agilidad',component:AgilidadAritmeticaComponent},
   {path:'menu',component:MenuComponent},
   {path:'listadoresultados',component:ListadoDeResultadosComponent},
     {path:'menulistado',component:MenuDeListadoComponent},
     {path:'agilidadmaslistado',component:AgilidadMasListadoComponent},
     {path:'adivinamaslistado',component:AdivinaMasListadoComponent},
 
-  {path:'login',component:LoginComponent},*/
+  {path:'login',component:LoginComponent}, 
  // {path:'',component:ErrorComponent},
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports: [RutasModule]
+  exports: [RouterModule]
 })
 export class RutasModule { }
