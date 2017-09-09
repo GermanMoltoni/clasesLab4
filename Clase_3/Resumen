@@ -3,3 +3,4 @@ Lanzo eventos con objeto EventEmitter<tipo> emit(dato)
 Capturo evento con el nombre del evento [nombre_evento]='funcion($event)'
 Declaro propiedad @Input para recibir datos en el componente . En el componente  desde donde se comparte pongo [dato]='atributo que comparto'
 Rutas-> Se declaran como modulo, las tengo que incluir en app module
+en el modulo exportar routermodule e importar reoutermodule.forRoot(rutas)
