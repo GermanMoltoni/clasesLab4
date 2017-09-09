@@ -12,12 +12,16 @@ import { LoginComponent } from './componentes/login/login.component';
 import { ErrorComponent } from './componentes/error/error.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
 import { MenuDeListadoComponent } from './componentes/menu-de-listado/menu-de-listado.component';
+import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/adivina-mas-listado.component';
+import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 let routes: Routes = [
   {path:'adivina',component:AdivinaElNumeroComponent},
   {path:'agilidad',component:AgilidadAritmeticaComponent},
   {path:'menu',component:MenuComponent},
   {path:'listadoresultados',component:ListadoDeResultadosComponent},
     {path:'menulistado',component:MenuDeListadoComponent},
+    {path:'agilidadmaslistado',component:AgilidadMasListadoComponent},
+    {path:'adivinamaslistado',component:AdivinaMasListadoComponent},
 
   {path:'login',component:LoginComponent},
  // {path:'',component:ErrorComponent},
@@ -31,7 +35,9 @@ let routes: Routes = [
     LoginComponent,
     ErrorComponent,
     ListadoDeResultadosComponent,
-    MenuDeListadoComponent
+    MenuDeListadoComponent,
+    AdivinaMasListadoComponent,
+    AgilidadMasListadoComponent
   ],
   imports: [
     BrowserModule,FormsModule,RouterModule.forRoot(routes)

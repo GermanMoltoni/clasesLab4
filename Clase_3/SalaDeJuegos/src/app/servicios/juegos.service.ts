@@ -23,7 +23,6 @@ export class JuegosService {
     listadoParaCompartir.push(j4);
     let j5 = new AdivinaElNumero("Juego 5","Pedro");
     j5.gano=false;
-    
     listadoParaCompartir.push(j5); 
     return listadoParaCompartir; 
   }

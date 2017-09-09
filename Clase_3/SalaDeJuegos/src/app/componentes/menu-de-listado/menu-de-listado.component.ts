@@ -16,7 +16,9 @@ export class MenuDeListadoComponent implements OnInit {
     this.listadoParaCompartir = new Array<Juego>();
     this.juegoService = service;
    }
-
+   ListarService(){
+     this.listadoParaCompartir = this.juegoService.listar();
+   }
 
   ngOnInit() {
   }

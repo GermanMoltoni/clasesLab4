@@ -11,5 +11,6 @@ export class AdivinaElNumero extends Juego{
     GenerarNuevo(){
         this.gano=false;
         this.numeroSecreto = Math.round(Math.random()*100);
+        console.log(this.numeroSecreto);
     }
 }

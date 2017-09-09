@@ -35,8 +35,7 @@ export class AgilidadAritmetica extends Juego{
         this.tiempo=new Date();
     }
     Verificar(){
-        if(this.gano = this.nIngresado == this.resultado)
-            this.tiempo = (new Date().getTime() - this.tiempo.getTime());
-        
+        if(this.gano = (this.nIngresado == this.resultado))
+            this.tiempo =1;// (new Date().getTime() - this.tiempo.getTime());
     }
 }
