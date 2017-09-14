@@ -20,5 +20,12 @@ export class LoginComponent implements OnInit {
 
     this.router.navigate(['menu']);
   }
+  Recover(){
+    this.router.navigate(['recuperarpassword']);
+  }
+  SignUp(){
+    this.router.navigate(['registrarusuario']);
+    
+  }
 
 }

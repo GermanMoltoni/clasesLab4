@@ -11,8 +11,13 @@ export class AdivinaElNumeroComponent implements OnInit {
   @Output() enviarJuego:EventEmitter<Juego> =new EventEmitter<Juego>();
   constructor() { 
     this.juego = new AdivinaElNumero('Adivina el numero',localStorage.getItem("usuario"));
+    
   }
   ngOnInit() {
+  }
+  GenerarNuevo(){
+    this.juego = new AdivinaElNumero('Adivina el numero',localStorage.getItem("usuario"));
+    this.juego.GenerarNuevo();
   }
   Verificar(){
     if(this.juego.Verificar())

@@ -16,6 +16,8 @@ import { AgilidadMasListadoComponent } from '../../componentes/agilidad-mas-list
 import { PiedraPapelOTijeraComponent } from '../../componentes/piedra-papel-otijera/piedra-papel-otijera.component';
 import { ReflejosDaltonicosComponent } from '../../componentes/reflejos-daltonicos/reflejos-daltonicos.component';
 
+import { RecuperarPasswordComponent } from '../../componentes/recuperar-password/recuperar-password.component';
+import { RegistroUsuarioComponent } from '../../componentes/registro-usuario/registro-usuario.component';
 
 const routes: Routes = [
   {path:'adivina',component:AdivinaElNumeroComponent},
@@ -27,7 +29,10 @@ const routes: Routes = [
     {path:'adivinamaslistado',component:AdivinaMasListadoComponent},
  {path:'piedrapapelotijera',component:PiedraPapelOTijeraComponent}, 
   {path:'reflejosdaltonicos',component:ReflejosDaltonicosComponent}, 
-  {path:'login',component:LoginComponent}, 
+  {path:'login',component:LoginComponent},
+  {path:'recuperarpassword',component:RecuperarPasswordComponent}, 
+  {path:'registrarusuario',component:RegistroUsuarioComponent}, 
+  
  // {path:'',component:ErrorComponent},
 ];
 @NgModule({

@@ -17,6 +17,8 @@ import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/ad
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { PiedraPapelOTijeraComponent } from './componentes/piedra-papel-otijera/piedra-papel-otijera.component';
 import { ReflejosDaltonicosComponent } from './componentes/reflejos-daltonicos/reflejos-daltonicos.component';
+import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
+import { RecuperarPasswordComponent } from './componentes/recuperar-password/recuperar-password.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { ReflejosDaltonicosComponent } from './componentes/reflejos-daltonicos/r
     AdivinaMasListadoComponent,
     AgilidadMasListadoComponent,
     PiedraPapelOTijeraComponent,
-    ReflejosDaltonicosComponent
+    ReflejosDaltonicosComponent,
+    RegistroUsuarioComponent,
+    RecuperarPasswordComponent
+    
   ],
   imports: [
     BrowserModule,FormsModule,RutasModule
