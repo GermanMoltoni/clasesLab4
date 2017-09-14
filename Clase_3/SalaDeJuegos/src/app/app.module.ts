@@ -1,6 +1,7 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule}   from '@angular/forms';
 import { RouterModule,Routes }   from '@angular/router';//rutas
 import { JuegosService } from './servicios/juegos.service';
 import { RutasModule } from './modulos/rutas/rutas.module';
@@ -19,8 +20,7 @@ import { PiedraPapelOTijeraComponent } from './componentes/piedra-papel-otijera/
 import { ReflejosDaltonicosComponent } from './componentes/reflejos-daltonicos/reflejos-daltonicos.component';
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 import { RecuperarPasswordComponent } from './componentes/recuperar-password/recuperar-password.component';
-
-@NgModule({
+ @NgModule({
   declarations: [
     AppComponent,
     AdivinaElNumeroComponent,
@@ -39,7 +39,7 @@ import { RecuperarPasswordComponent } from './componentes/recuperar-password/rec
     
   ],
   imports: [
-    BrowserModule,FormsModule,RutasModule
+    BrowserModule,FormsModule,RutasModule,ReactiveFormsModule
   ],
   providers: [JuegosService],
   bootstrap: [AppComponent]

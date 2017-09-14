@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router }   from '@angular/router';//rutas
+import { FormsModule  }   from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -20,12 +21,6 @@ export class LoginComponent implements OnInit {
 
     this.router.navigate(['menu']);
   }
-  Recover(){
-    this.router.navigate(['recuperarpassword']);
-  }
-  SignUp(){
-    this.router.navigate(['registrarusuario']);
-    
-  }
+ 
 
 }

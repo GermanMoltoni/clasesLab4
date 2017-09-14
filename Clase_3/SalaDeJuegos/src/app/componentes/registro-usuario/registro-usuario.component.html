@@ -1,15 +1,17 @@
 <div class="container">
   <div class="card card-container">
        <p id="profile-name" class="profile-name-card"></p>
-      <form class="form-signin">
+      <form [formGroup]='registroForm'class="form-signin" >
           <span id="reauth-email" class="reauth-email"></span>
-          <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}" required autofocus>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required>
-          <input type="email"  class="form-control" placeholder="Mail" [(ngModel)]="mail" [ngModelOptions]="{standalone: true}" required>
+          <input type="text"   [formControl]='inputUsuario' class="form-control" placeholder="Usuario" required autofocus>
+          <input type="password"  [formControl]='inputPassword'class="form-control" placeholder="Password"  required>
+          <input type="password"   class="form-control" placeholder="Repetir Password" required>
+          
+          <input type="email"  class="form-control" [formControl]='inputMail' placeholder="Mail" required>
           
          
           <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="onClick()">Sign Up</button>
       </form><!-- /form -->
  
   </div><!-- /card-container -->
-</div><!-- /container -->
+</div><!-- /container      [(ngModel)]="mail" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}"  -->
