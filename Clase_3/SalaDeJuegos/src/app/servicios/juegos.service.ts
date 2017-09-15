@@ -2,12 +2,19 @@ import { Injectable } from '@angular/core';
 import {Juego} from '../Clases/juego';
 import {AgilidadAritmetica } from '../clases/agilidad-aritmetica';
 import {AdivinaElNumero} from '../clases/adivina-el-numero';
+import {MiHttpService} from './mi-http.service';
 @Injectable()
 export class JuegosService {
 
-  constructor() { }
-
+  constructor(public miHttp:MiHttpService) { }
+  
   listar():Juego[]{
+    this.miHttp.DameUnaPromesa('http://restcountries.eu/rest/v2/all').then(datos=>console.log(datos));
+
+
+
+
+
     let listadoParaCompartir = new Array<Juego>();
     let j1 = new AgilidadAritmetica("Juego 1","Juan");
     j1.gano=false;
@@ -26,4 +33,5 @@ export class JuegosService {
     listadoParaCompartir.push(j5); 
     return listadoParaCompartir; 
   }
+
 }
