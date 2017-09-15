@@ -37,11 +37,12 @@ import { MiHttpService } from './servicios/mi-http.service';
     PiedraPapelOTijeraComponent,
     ReflejosDaltonicosComponent,
     RegistroUsuarioComponent,
-    RecuperarPasswordComponent
+    RecuperarPasswordComponent,
+
     
   ],
   imports: [
-    BrowserModule,FormsModule,RutasModule,ReactiveFormsModule
+    BrowserModule,FormsModule,RutasModule,ReactiveFormsModule,HttpModule
   ],
   providers: [JuegosService,MiHttpService],
   bootstrap: [AppComponent]

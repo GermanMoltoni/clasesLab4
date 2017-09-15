@@ -1,3 +1,4 @@
+import { MiHttpService } from './servicios/mi-http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
@@ -73,7 +74,7 @@ import { AnagramaComponent } from './componentes/anagrama/anagrama.component'
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService],
+  providers: [ JuegoServiceService,MiHttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

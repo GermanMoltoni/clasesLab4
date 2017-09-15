@@ -8,13 +8,9 @@ export class JuegosService {
 
   constructor(public miHttp:MiHttpService) { }
   
-  listar():Juego[]{
-    this.miHttp.DameUnaPromesa('http://restcountries.eu/rest/v2/all').then(datos=>console.log(datos));
-
-
-
-
-
+  listar():Juego[]{//https://www.mockaroo.com/ http://www.mocky.io/ 
+      this.miHttp.DameUnaPromesa("http://www.mocky.io/v2/59bb277e0f00004707622a80").then(datos=>console.log(datos)).catch(error=>console.log(error));
+//http://restcountries.eu/rest/v2/all
     let listadoParaCompartir = new Array<Juego>();
     let j1 = new AgilidadAritmetica("Juego 1","Juan");
     j1.gano=false;

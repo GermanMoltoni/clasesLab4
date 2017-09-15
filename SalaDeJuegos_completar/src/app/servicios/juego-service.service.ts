@@ -9,7 +9,7 @@ export class JuegoServiceService {
   constructor(public miHttp:MiHttpService) { }
 
   public listar(): Array<Juego> {
-    this.miHttp.DameUnaPromesa('http://restcountries.eu/rest/v2/all').then(datos=>console.log(datos));
+    this.miHttp.DameUnaPromesa("http://restcountries.eu/rest/v2/all").then(datos=>console.log(datos)).catch(error=>console.log(error));
     
     let miArray: Array<Juego> = new Array<Juego>();
 
