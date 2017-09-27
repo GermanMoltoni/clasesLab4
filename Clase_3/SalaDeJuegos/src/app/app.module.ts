@@ -21,6 +21,7 @@ import { ReflejosDaltonicosComponent } from './componentes/reflejos-daltonicos/r
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 import { RecuperarPasswordComponent } from './componentes/recuperar-password/recuperar-password.component';
 import { MiHttpService } from './servicios/mi-http.service';
+import { JuegosComponent } from './componentes/juegos/juegos.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MiHttpService } from './servicios/mi-http.service';
     ReflejosDaltonicosComponent,
     RegistroUsuarioComponent,
     RecuperarPasswordComponent,
+    JuegosComponent,
 
     
   ],

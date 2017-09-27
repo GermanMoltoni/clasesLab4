@@ -18,17 +18,25 @@ import { ReflejosDaltonicosComponent } from '../../componentes/reflejos-daltonic
 
 import { RecuperarPasswordComponent } from '../../componentes/recuperar-password/recuperar-password.component';
 import { RegistroUsuarioComponent } from '../../componentes/registro-usuario/registro-usuario.component';
+import { JuegosComponent } from '../../componentes/juegos/juegos.component';
 
 const routes: Routes = [
-  {path:'adivina',component:AdivinaElNumeroComponent},
-   {path:'agilidad',component:AgilidadAritmeticaComponent},
+  {path:'juegos',component:JuegosComponent,
+  children:[
+    {path:'adivina',component:AdivinaElNumeroComponent},
+    {path:'agilidad',component:AgilidadAritmeticaComponent},
+    {path:'piedrapapelotijera',component:PiedraPapelOTijeraComponent}, 
+    {path:'reflejosdaltonicos',component:ReflejosDaltonicosComponent}, 
+  ]},
+  
+   
   {path:'menu',component:MenuComponent},
   {path:'listadoresultados',component:ListadoDeResultadosComponent},
     {path:'menulistado',component:MenuDeListadoComponent},
     {path:'agilidadmaslistado',component:AgilidadMasListadoComponent},
     {path:'adivinamaslistado',component:AdivinaMasListadoComponent},
- {path:'piedrapapelotijera',component:PiedraPapelOTijeraComponent}, 
-  {path:'reflejosdaltonicos',component:ReflejosDaltonicosComponent}, 
+ 
+  
   {path:'login',component:LoginComponent},
   {path:'recuperarpassword',component:RecuperarPasswordComponent}, 
   {path:'registrarusuario',component:RegistroUsuarioComponent}, 
