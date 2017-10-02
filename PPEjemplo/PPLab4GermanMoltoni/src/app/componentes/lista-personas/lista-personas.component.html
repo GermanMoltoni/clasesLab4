@@ -1,0 +1,37 @@
+<div class="container">
+      <div class="row">
+          <div class="col-lg-3 col-sm-3" *ngFor='let persona of personas'>
+              <div class="card" *ngIf='persona.sexo == "F" else masculino' style="background-color:pink;">
+                  <a class="img-card" href="#">
+                      <img src="http://localhost/clasesLab4/ParcialEjemplo_resuelto/Slim/index.php/persona/{{persona.mail}}" />
+                  </a>
+                  <br />
+                  <div class="card-content">
+                      <h4 class="card-title">{{persona.nombre}}
+                      </h4>
+                      <div class="">
+                          {{persona.mail}}
+                      </div>
+                  </div>
+             
+              </div>
+              <ng-template #masculino>
+                  <div class="card" >
+                      <a class="img-card" href="#">
+                          <img src="http://localhost/clasesLab4/ParcialEjemplo_resuelto/Slim/index.php/persona/{{persona.mail}}" />
+                      </a>
+                      <br />
+                      <div class="card-content">
+                          <h4 class="card-title">{{persona.nombre}}
+                          </h4>
+                          <div class="">
+                              {{persona.mail}}
+                          </div>
+                      </div>
+                 
+                  </div>
+              </ng-template>
+          </div>
+      </div>
+      
+  </div>

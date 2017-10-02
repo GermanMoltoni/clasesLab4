@@ -1,0 +1,27 @@
+
+Agregar a app.module:
+    Importar en imports import { RutasModule } from './modulos/rutas/rutas.module';
+    Rutas:
+        import { RouterModule,Routes }   from '@angular/router';
+    Http:
+        import {HttpModule} from '@angular/http';
+    Forms:
+        import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+Imports en app.module:
+    imports: BrowserModule,FormsModule,ReactiveFormsModule,HttpModule
+
+Dentro del servicio http:
+    import {Http,Response} from '@angular/http'; 
+    import 'rxjs/add/operator/toPromise';
+    constructor(public http:Http) { }
+    
+    metodo con this.http.get(url).toPromise().then(this.ExtraerDatos).catch(this.ManejadorDeError);
+
+Rutas modulo:
+    import { RouterModule,Routes }   from '@angular/router';//rutas
+    @NgModule({
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [RouterModule]
+})
