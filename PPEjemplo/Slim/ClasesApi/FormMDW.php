@@ -2,6 +2,7 @@
 require_once './Clases/Persona.php';
 class FormMDW{
     public static function FormPersona($request, $response, $next){
+        echo json_encode($request->getParsedBody());
             $data = $request->getParsedBody();
             if(!isset($data['mail'],$data['nombre'],$data['sexo'],$data['password']))
                 return $response->withJson(array('msg'=>'Faltan Datos'),201);

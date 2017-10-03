@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http,Response} from '@angular/http'; 
+import {Http,Response,Headers} from '@angular/http'; 
 import 'rxjs/add/operator/toPromise';
 import { Observable }     from 'rxjs/Observable';  
 import 'rxjs/add/operator/map'
@@ -14,6 +14,9 @@ export class MiHttpService {
   }
   DameUnObservable(url:string){
     return this.http.get(url).map(this.ExtraerDatos);
+  }
+  Post(url:string,body:any){
+    return this.http.post(url,body,{headers:new Headers({'Content-Type': 'application/json'})}).subscribe(res=>console.log(res));
   }
   ManejadorDeError(error:Response|any){
     return error;

@@ -16,7 +16,7 @@ export class FormAltaPersonaComponent implements OnInit {
   constructor() { }
 
   onClick(){
-    this.persona = new Persona('german','M','asdasdasd','asdasdasd');
+    this.persona = new Persona('germsdfsdfan','M','asdasddasdadaasd','asdasdasdasdsdasd');
     this.altaPersona.emit(this.persona);
   }
   ngOnInit() {

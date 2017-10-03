@@ -19,6 +19,7 @@ export class PersonasComponent implements OnInit {
     });
   }
   AgregarPersona(persona:Persona){
+    this.personaService.RegistrarPersona(persona);
     this.listadoPersonas.push(persona);
   }
   ngOnInit() {
