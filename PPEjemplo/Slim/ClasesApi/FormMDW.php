@@ -11,6 +11,8 @@ class FormMDW{
             $persona_data['nombre'] = filter_var($data['nombre'], FILTER_SANITIZE_STRING);
             $persona_data['sexo'] = filter_var($data['sexo'], FILTER_SANITIZE_STRING);
             $persona_data['password'] = filter_var($data['password'], FILTER_SANITIZE_STRING);
+            $persona_data['pathFoto'] = filter_var($data['pathFoto'], FILTER_SANITIZE_STRING);
+            
             return $next($request->withAttribute('persona',$persona_data), $response);
     }
     public static function ModifFormPersona($request, $response, $next){
@@ -23,6 +25,8 @@ class FormMDW{
             $persona_data['nombre'] = filter_var($data['nombre'], FILTER_SANITIZE_STRING);
             $persona_data['sexo'] = filter_var($data['sexo'], FILTER_SANITIZE_STRING);
             $persona_data['password'] = filter_var($data['password'], FILTER_SANITIZE_STRING);
+            $persona_data['pathFoto'] = filter_var($data['pathFoto'], FILTER_SANITIZE_STRING);
+            
             return $next($request->withAttribute('persona',$persona_data), $response);
     }
 

@@ -51,13 +51,6 @@ class AuthMDW{
         return $next($request,$response);
     }   
 
-    static function VerificarArchivo($request, $response, $next){
-        $retorno = Archivo::VerificarArchivo($request);
-        if(is_array($retorno))
-            return $response->withJson($retorno,201);  
-        return $next($request->withAttribute('foto',$retorno),$response);  
-    }
-    
 
 }
 

@@ -1,0 +1,64 @@
+<div>
+  <button (click)="Listar()">Listar Personas</button>
+  <label><input type="checkbox"  (change)='ocultar($e)' >Editar</label>
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Sexo</th>
+        <th>Mail</th>
+        <th>Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let persona of personas'>
+        <td>{{persona.nombre}}</td>
+        <td *ngIf='persona.sexo == "F" else masculino' style="background-color:pink;">{{persona.sexo}}</td>
+        <ng-template #masculino>
+          <td style="background-color:lightblue;">{{persona.sexo}}</td>        
+        </ng-template>
+        <td>{{persona.mail}}</td>
+        <td><img src='./assets/fotos/{{persona.pathFoto}}' height="50%" width="50%"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div [hidden]='!check'>
+  <form [formGroup]="formRegistro" (ngSubmit)='RegistrarPersona()'>
+    <div>
+      <label>Nombre</label>
+      <input type="text" name="nombre" [formControl]="nombre">
+    </div>
+    <div>
+      <label>sexo
+        <label><input type="radio" name="sexo" value="M" formControlName="sexo">M</label>
+        <label><input type="radio" name="sexo" value="F" formControlName="sexo">F</label>
+    </label>
+    </div>
+    <div>
+      <div>
+          <label>Mail</label>
+          <input type="text" [formControl]="email">
+      </div>
+      <div>
+        <div>
+          <label>Password</label>
+          <input type="text" [formControl]="clv1">
+        </div>
+        <div>
+          <label>Repetir Password</label>
+          <input type="text" [formControl]="clv2">
+        </div>
+      </div>
+      
+    </div>
+    <div>
+        <label>Foto</label>
+        <input type="text" [formControl]="pathFoto">
+    </div>
+    <button type="submit" [disabled]="!formRegistro.valid">Registrar</button>
+  </form>
+</div>

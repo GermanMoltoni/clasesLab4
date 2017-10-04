@@ -17,8 +17,7 @@ class PersonaApi extends Persona{
     public static function AltaApi($request, $response, $args) {
         $persona_data = $request->getAttribute('persona');
         $persona = new Persona($persona_data['mail'],$persona_data['nombre'],$persona_data['sexo'],$persona_data['password']);
-        if($request->getAttribute('pathFoto')!= null)
-            $persona->pathFoto = $request->getAttribute('pathFoto');
+        $persona->pathFoto = $persona_data['pathFoto'];
         if($persona->Alta())
             return $response->withJson(array('msg'=>'Creado Correctamente'),200);
         return $response->withJson(array('msg'=>'No se pudo crear la persona'),201);
@@ -27,8 +26,8 @@ class PersonaApi extends Persona{
     public static function ModificarApi($request, $response, $args){
         $persona_data = $request->getAttribute('persona');
         $persona = new Persona($persona_data['mail'],$persona_data['nombre'],$persona_data['sexo'],$persona_data['password'],$persona_data['id']);
-        if($request->getAttribute('pathFoto')!= null)
-            $persona->pathFoto = $request->getAttribute('pathFoto');
+        if($persona_data['pathFoto']!= null)
+            $persona->pathFoto = $persona_data['pathFoto'];
         if($persona->Modificar())
             return $response->withJson(array('msg'=>'Modificado Correctamente'),200);
         return $response->withJson(array('msg'=>'No se pudo modificar la persona'),201);

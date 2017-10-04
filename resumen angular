@@ -25,3 +25,26 @@ Rutas modulo:
   ],
   exports: [RouterModule]
 })
+
+rutas: {path:,compoent:,children:{path:,component:}}
+
+Habilitar elementos o no:  [disabled]
+Evento submit : (ngSubmit)
+FormControl
+imports en component    
+    import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+    constructor(private builder: FormBuilder)
+    cada campo a validar:
+        email= new FormControl('', [
+            Validators.required,
+            copiaClave
+            ]);
+        nombre del formulario y cada campo igualado al campo   
+        registroForm: FormGroup = this.builder.group({
+            email: this.email,
+            clave: this.clave,
+            copiaClave: this.copiaClave,
+        });
+    Agregar a los elementos del form [formcontrol]='nombre', nombre del form [formGroup]
+
+    Obtener datos: this.registroForm.get('email').value
