@@ -18,6 +18,7 @@ function copiaClave(input: FormControl) {
 })
 
 export class PaginaPrincipalComponent implements OnInit {
+  private compartirPersona:Persona;
    private personas:Persona[];
   constructor(private builder: FormBuilder,private personaService:PersonaService) { }
   email = new FormControl('', [
@@ -53,7 +54,8 @@ export class PaginaPrincipalComponent implements OnInit {
   ngOnInit() {
   }
   Listar(){
-    this.personaService.ListarProm().then(per=>{this.personas=per;});
+    //this.personaService.ListarProm().then(per=>{this.personas=per;});
+    
   }
   RegistrarPersona(){
     let nombre = this.formRegistro.get('nombre').value;
@@ -69,7 +71,7 @@ export class PaginaPrincipalComponent implements OnInit {
   }
   BorrarPersona(persona:Persona){
     this.personaService.BorrarPersona(persona.id);
-    
+    this.compartirPersona = persona;
   }
 
 }

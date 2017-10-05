@@ -7,7 +7,9 @@ import {Persona} from '../../clases/persona'
 })
 export class MostrarPersonaComponent implements OnInit {
 @Input() private persona:Persona;
-  constructor() { }
+  constructor() {
+    
+   }
 
   ngOnInit() {
   }
