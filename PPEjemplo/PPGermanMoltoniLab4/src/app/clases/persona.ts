@@ -2,7 +2,7 @@ export class Persona {
     private nombre:string;
     private mail:string;
     private sexo:string;
-    private id:number;
+    public id:number;
     private password:string;
     private habilitado:boolean;
     private pathFoto:string;
@@ -14,6 +14,9 @@ export class Persona {
         this.password = password;
         this.habilitado = habilitado;
         this.pathFoto=pathFoto;
+    }
+    GetId():number{
+        return this.id;
     }
 
 }

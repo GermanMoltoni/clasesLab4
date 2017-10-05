@@ -73,8 +73,8 @@ class MWparaCORS
 		 $response = $next($request, $response);
 		 //$response->getBody()->write('<p>habilitado HabilitarCORS4200</p>');
    		 return $response
-            ->withHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
-            ->withHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Origin, Authorization,Access-Control-Allow-Headers')
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin,access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,content-type')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 	}
 }

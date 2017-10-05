@@ -10,17 +10,17 @@
         <th>Sexo</th>
         <th>Mail</th>
         <th>Foto</th>
+        <th>Borrar</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor='let persona of personas'>
         <td>{{persona.nombre}}</td>
-        <td *ngIf='persona.sexo == "F" else masculino' style="background-color:pink;">{{persona.sexo}}</td>
-        <ng-template #masculino>
-          <td style="background-color:lightblue;">{{persona.sexo}}</td>        
-        </ng-template>
+        <td *ngIf='persona.sexo == "F"' style="background-color:pink;">{{persona.sexo}}</td>
+        <td *ngIf='persona.sexo != "F"' style="background-color:lightblue;">{{persona.sexo}}</td>        
         <td>{{persona.mail}}</td>
-        <td><img src='./assets/fotos/{{persona.pathFoto}}' height="50%" width="50%"></td>
+        <td><img src='./assets/fotos/{{persona.pathFoto}}' height="50" width="50"></td>
+        <td><button type="button" class="btn btn-danger" (click)="BorrarPersona(persona); $event.stopPropagation()">Borrar</button></td>
       </tr>
     </tbody>
   </table>

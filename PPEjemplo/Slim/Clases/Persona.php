@@ -54,9 +54,11 @@
             if (($persona = self::GetById($id)) != false)
             {
                 $objDB = AccesoDatos::DameUnObjetoAcceso(); 
-                $consulta = $objDB->RetornarConsulta("UPDATE `Persona` SET `habilitado` = :habilitado WHERE `id` = :Id");
-		        $consulta->bindValue(':Id',$id, PDO::PARAM_INT);
-                $consulta->bindValue(':habilitado',false, PDO::PARAM_STR);
+               // $consulta = $objDB->RetornarConsulta("UPDATE `Persona` SET `habilitado` = :habilitado WHERE `id` = :Id");
+                               $consulta = $objDB->RetornarConsulta("DELETE FROM `Persona`  WHERE `id` = :Id");
+
+               $consulta->bindValue(':Id',$id, PDO::PARAM_INT);
+                //$consulta->bindValue(':habilitado',false, PDO::PARAM_STR);
                 $consulta->execute();
                 return true;
             }

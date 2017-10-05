@@ -14,11 +14,11 @@ export class PersonaService {
   ListarProm(){
     return this.http.DameUnaPromesa('http://localhost/clasesLab4/PPEjemplo/Slim/index.php/persona');
   }
-  ListarObs():Observable<Persona[]>{
-   return this.http.DameUnObservable('http://localhost/clasesLab4/PPEjemplo/Slim/index.php/persona') as Observable<Persona[]>;
-}
   RegistrarPersona(persona:Persona){
-    console.log(persona);
-    this.http.Post('http://localhost/clasesLab4/PPEjemplo/Slim/index.php/persona',JSON.stringify(persona));
+    return this.http.Post('http://localhost/clasesLab4/PPEjemplo/Slim/index.php/persona',JSON.stringify(persona));
+  }
+  BorrarPersona(id:number){
+    return this.http.Delete('http://localhost/clasesLab4/PPEjemplo/Slim/index.php/persona',id);
+    
   }
 }

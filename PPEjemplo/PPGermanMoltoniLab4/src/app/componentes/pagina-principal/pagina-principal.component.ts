@@ -67,5 +67,9 @@ export class PaginaPrincipalComponent implements OnInit {
   ocultar(){
     this.check = !this.check;
   }
+  BorrarPersona(persona:Persona){
+    this.personaService.BorrarPersona(persona.id);
+    
+  }
 
 }
