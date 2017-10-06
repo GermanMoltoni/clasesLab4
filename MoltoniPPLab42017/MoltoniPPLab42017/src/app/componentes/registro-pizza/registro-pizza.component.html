@@ -1,0 +1,33 @@
+<div  class="col-lg-4 col-md-4">
+  <form [formGroup]="formRegistro" (ngSubmit)='CrearPizza()'>
+      <div class="row">
+          <div class="form-group col-md-8">
+              <label for="sabor">Sabor</label>
+              <input type="text" name="sabor"class="form-control" [formControl]="sabor">
+          </div>
+      </div>
+      <div class="row">
+          <div class="form-group col-md-5">
+              <label for="tipo">Tipo
+                  <label><input type="radio" name="tipo" value="Molde" formControlName="tipo">Molde</label>
+                  <label><input type="radio" name="tipo" value="Piedra" formControlName="tipo">Piedra</label>
+              </label>
+          </div>
+      </div>
+      <div class="row">
+          <div  class="form-group col-md-5">
+              <label for="cantidad">Cantidad</label>
+              <input type="text" class="form-control" name="cantidad" [formControl]="cantidad">
+          </div>
+      </div>
+      <div class="row">
+          <div class="form-group col-md-4">
+              <label for="pathFoto">Foto</label>
+              <input type="text" class="form-control" name="pathfoto" [formControl]="pathFoto">
+          </div>
+      </div>
+  <button type="submit" [disabled]="!formRegistro.valid" class="btn btn-info">Crear Pedido</button>
+</form>
+</div>
+
+<app-pizza [pizza]='registrarPizza'></app-pizza>

@@ -18,7 +18,7 @@
         }
         function Alta(){
                 $objDB = AccesoDatos::DameUnObjetoAcceso();
-		        $consulta = $objDB->RetornarConsulta("INSERT INTO `Pizza`(`sabor`,`tipo`, `cantidad`,`pathFoto`) VALUES (:sabor, :tipo, :cantidad, :pathFoto, :id)");
+		        $consulta = $objDB->RetornarConsulta("INSERT INTO `Pizza`(`sabor`,`tipo`, `cantidad`,`pathFoto`) VALUES (:sabor, :tipo, :cantidad, :pathFoto)");
 		        $consulta->bindValue(':sabor',$this->sabor, PDO::PARAM_STR);
                 $consulta->bindValue(':tipo',$this->tipo, PDO::PARAM_STR);
                 $consulta->bindValue(':cantidad',$this->cantidad, PDO::PARAM_STR);

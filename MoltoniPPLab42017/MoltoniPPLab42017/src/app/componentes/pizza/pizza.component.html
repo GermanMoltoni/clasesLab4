@@ -1,0 +1,21 @@
+
+<div class="container" [hidden]='pizza == undefined'>
+    <div class="row">
+        <!-- Card Projects -->
+        <div class="col-md-6 col-md-offset-3">
+            <div class="card ">
+                <div class="card-image">
+                    <img class="img-responsive" src="./assets/fotos/{{pizza.pathFoto}}">
+                    <span class="card-title text-center"><strong><h3>{{pizza.sabor}}</h3></strong></span>
+                </div>
+                
+                <div class="card-content bg-primary">
+                        <p class=" ">Tipo: {{pizza.tipo}}</p>
+                    <p class="">Cantidad: {{pizza.cantidad}}</p>
+                </div>
+                
+  
+            </div>
+        </div>
+    </div>
+</div>

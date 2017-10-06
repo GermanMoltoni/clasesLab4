@@ -6,22 +6,18 @@ import 'rxjs/add/operator/map'
 
 @Injectable()
 export class MiHttpService {
-
-  constructor(public http:Http) { }
+  public ruta:string;
+  constructor(public http:Http) {
+    this.ruta= 'http://localhost:8080/clasesLab4/MoltoniPPLab42017/Slim/';
+   }
   DameUnaPromesa(url:string){
-    return this.http.get(url)
+    return this.http.get(this.ruta+url)
     .toPromise().then(this.ExtraerDatos).catch(this.ManejadorDeError);
   }
   Post(url:string,body:any){
     let headers=new Headers();
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    
     headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-    
-    headers.append('Access-Control-Allow-Headers', 'Access-Control-Allow-Origin, Authorization');
-    let options = new RequestOptions({ headers: headers })
-    return this.http.post(url,body,options)
+    return this.http.post(this.ruta+url,body,{ headers: headers })
     .toPromise()
     .then(this.ExtraerDatos)
     .catch(this.ManejadorDeError);

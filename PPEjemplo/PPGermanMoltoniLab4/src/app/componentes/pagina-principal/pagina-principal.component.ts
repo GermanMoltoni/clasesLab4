@@ -56,7 +56,7 @@ export class PaginaPrincipalComponent implements OnInit {
   Listar(){
     //this.personaService.ListarProm().then(per=>{this.personas=per;});
     
-  }
+  } 
   RegistrarPersona(){
     let nombre = this.formRegistro.get('nombre').value;
     let password = this.formRegistro.get('clv1').value;

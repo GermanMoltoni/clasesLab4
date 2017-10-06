@@ -1,0 +1,20 @@
+<div class="col-md-8 col-lg-8">
+     <table class="table table-condensed table-striped">
+        <thead>
+        <tr>
+            <th>Sabor</th>
+            <th>Tipo</th>
+            <th>Cantidad</th>
+            <th>Foto</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let pizza of pizzas'>
+                <td>{{pizza.sabor}}</td>
+                <td>{{pizza.tipo}}</td>
+                <td>{{pizza.cantidad}}</td>
+                <td><img src='./assets/fotos/{{pizza.pathFoto}}' height="50" width="50"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

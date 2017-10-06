@@ -1,16 +1,13 @@
 <?php
-require_once './Clases/Persona.php';
+require_once './Clases/Pizza.php';
 class FormMDW{
     public static function FormPizza($request, $response, $next){
-        echo json_encode($request->getParsedBody());
-            $data = $request->getParsedBody();
-            if(!isset($data['sabor'],$data['tipo'],$data['cantidad'],$data['pathFoto']))
-                return $response->withJson(array('msg'=>'Faltan Datos'),201);
+
             $pizza_data=array();
-            $pizza_data['sabor'] = filter_var($data['sabor'], FILTER_SANITIZE_STRING);
-            $pizza_data['tipo'] = filter_var($data['tipo'], FILTER_SANITIZE_STRING);
-            $pizza_data['cantidad'] = filter_var($data['cantidad'], FILTER_SANITIZE_STRING);
-            $pizza_data['pathFoto'] = filter_var($data['pathFoto'], FILTER_SANITIZE_STRING);
+            $pizza_data['sabor'] = filter_var($request->getParam('sabor'), FILTER_SANITIZE_STRING);
+            $pizza_data['tipo'] = filter_var($request->getParam('tipo'), FILTER_SANITIZE_STRING);
+            $pizza_data['cantidad'] = filter_var($request->getParam('cantidad'), FILTER_SANITIZE_STRING);
+            $pizza_data['pathFoto'] = filter_var($request->getParam('pathFoto'), FILTER_SANITIZE_STRING);
             return $next($request->withAttribute('pizza',$pizza_data), $response);
     }
 
