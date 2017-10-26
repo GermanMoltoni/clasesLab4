@@ -2,7 +2,6 @@ import { Component, OnInit,Input } from '@angular/core';
 import {AgilidadAritmetica } from '../../clases/agilidad-aritmetica';
 import {AdivinaElNumero} from '../../clases/adivina-el-numero';
 import {Juego} from '../../clases/juego';
-
 @Component({
   selector: 'app-listado-de-resultados',
   templateUrl: './listado-de-resultados.component.html',

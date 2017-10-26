@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Http,Response} from '@angular/http'; 
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map'
+import { Observable }     from 'rxjs/Observable'; 
 @Injectable()
-export class MiHttpService {
-
+export class MiHttpService{
+  
   constructor(public http:Http) { }
-  DameUnaPromesa(url:string){
-    return this.http.get(url)
-    .toPromise().then(this.ExtraerDatos).catch(this.ManejadorDeError);
+  DameUnObservable(path:string){
+    return this.http.get(path).map(this.ExtraerDatos);
   }
   ManejadorDeError(error:Response|any){
     return error;

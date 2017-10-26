@@ -21,7 +21,16 @@ import { ReflejosDaltonicosComponent } from './componentes/reflejos-daltonicos/r
 import { RegistroUsuarioComponent } from './componentes/registro-usuario/registro-usuario.component';
 import { RecuperarPasswordComponent } from './componentes/recuperar-password/recuperar-password.component';
 import { MiHttpService } from './servicios/mi-http.service';
+import { ArchivoJugadoresService } from './servicios/archivo-jugadores.service';
+import { JugadoresService } from './servicios/jugadores.service';
+
+
 import { JuegosComponent } from './componentes/juegos/juegos.component';
+import { ListarJugadoresComponent } from './componentes/listar-jugadores/listar-jugadores.component';
+import { MenuListarJugadoresComponent } from './componentes/menu-listar-jugadores/menu-listar-jugadores.component';
+import { JugadoresComponent } from './componentes/jugadores/jugadores.component';
+import { SexoPipe } from './pipes/sexo.pipe';
+import { ResultadoPipe } from './pipes/resultado.pipe';
 
 @NgModule({
   declarations: [
@@ -40,13 +49,18 @@ import { JuegosComponent } from './componentes/juegos/juegos.component';
     RegistroUsuarioComponent,
     RecuperarPasswordComponent,
     JuegosComponent,
+    ListarJugadoresComponent,
+    MenuListarJugadoresComponent,
+    JugadoresComponent,
+    SexoPipe,
+    ResultadoPipe,
 
     
   ],
   imports: [
     BrowserModule,FormsModule,RutasModule,ReactiveFormsModule,HttpModule
   ],
-  providers: [JuegosService,MiHttpService],
+  providers: [JuegosService,MiHttpService,ArchivoJugadoresService,JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

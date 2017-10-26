@@ -1,0 +1,21 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Usuario</th>
+        <th>Cuit</th>
+        <th>Resultado</th>
+        <th>Fecha</th>
+        <th>Sexo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jugador of jugadores | async">
+        <td>{{jugador.usuario}}</td>
+        <td>{{jugador.cuit}}</td>
+        <td>{{jugador.gano | resultado }}</td><!-- cuit, gano si o no, puntos 10000> re bien 8000> bien, 3000< mal -->
+        <td >{{jugador.fecha}}</td>
+        <td>{{jugador.sexo | sexo | uppercase}}</td>
+      </tr>
+    </tbody>
+  </table>

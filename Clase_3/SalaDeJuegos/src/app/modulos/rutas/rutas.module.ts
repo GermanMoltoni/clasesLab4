@@ -19,6 +19,7 @@ import { ReflejosDaltonicosComponent } from '../../componentes/reflejos-daltonic
 import { RecuperarPasswordComponent } from '../../componentes/recuperar-password/recuperar-password.component';
 import { RegistroUsuarioComponent } from '../../componentes/registro-usuario/registro-usuario.component';
 import { JuegosComponent } from '../../componentes/juegos/juegos.component';
+import { JugadoresComponent } from '../../componentes/jugadores/jugadores.component';
 
 const routes: Routes = [
   {path:'juegos',component:JuegosComponent,
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'recuperarpassword',component:RecuperarPasswordComponent}, 
   {path:'registrarusuario',component:RegistroUsuarioComponent}, 
+  {path:'jugadores',component:JugadoresComponent}, 
   
  // {path:'',component:ErrorComponent},
 ];
