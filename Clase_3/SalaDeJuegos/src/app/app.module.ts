@@ -31,6 +31,7 @@ import { MenuListarJugadoresComponent } from './componentes/menu-listar-jugadore
 import { JugadoresComponent } from './componentes/jugadores/jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { ResultadoPipe } from './pipes/resultado.pipe';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { ResultadoPipe } from './pipes/resultado.pipe';
     
   ],
   imports: [
-    BrowserModule,FormsModule,RutasModule,ReactiveFormsModule,HttpModule
+    BrowserModule,FormsModule,RutasModule,ReactiveFormsModule,HttpModule,Ng2SmartTableModule,
   ],
   providers: [JuegosService,MiHttpService,ArchivoJugadoresService,JugadoresService],
   bootstrap: [AppComponent]

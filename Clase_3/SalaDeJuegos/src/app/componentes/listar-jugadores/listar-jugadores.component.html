@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <table>
     <thead>
       <tr>
@@ -13,9 +13,12 @@
       <tr *ngFor="let jugador of jugadores | async">
         <td>{{jugador.usuario}}</td>
         <td>{{jugador.cuit}}</td>
-        <td>{{jugador.gano | resultado }}</td><!-- cuit, gano si o no, puntos 10000> re bien 8000> bien, 3000< mal -->
-        <td >{{jugador.fecha}}</td>
+        <td>{{jugador.gano | resultado }}</td> cuit, gano si o no, puntos 10000> re bien 8000> bien, 3000< mal -->
+  <!--      <td >{{jugador.fecha}}</td>
         <td>{{jugador.sexo | sexo | uppercase}}</td>
       </tr>
     </tbody>
-  </table>
+  </table>-->
+
+  <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+  
