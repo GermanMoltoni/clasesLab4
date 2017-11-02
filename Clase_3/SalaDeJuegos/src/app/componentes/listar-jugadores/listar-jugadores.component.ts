@@ -11,6 +11,17 @@ export class ListarJugadoresComponent implements OnInit {
 private data ;
   constructor() { }
   settings = {
+    mode:'inline',
+    actions:{
+      add:true,
+      edit:true,
+      delete:true
+    },
+    add:{confirmCreate:true},
+    edit:{
+      confirmSave:true
+    },
+    delete:{confirmDelete:true},
     columns: {
       usuario: {
         title: 'ID'
@@ -31,6 +42,18 @@ private data ;
   };
   ngOnInit() {
      this.jugadores.subscribe(datos=>{this.data = new LocalDataSource(datos) });
+  }
+  nuevoJugador(jugador:any){
+     console.log(jugador.newData );
+      jugador.confirm.resolve();
+  }
+  editarJugador(jugador:any){
+    console.log(jugador.newData );
+    jugador.confirm.resolve();    
+  }
+  borrarJugador(jugador:any){
+    console.log(jugador.data );
+    jugador.confirm.resolve();
   }
 
 }

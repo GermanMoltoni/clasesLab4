@@ -10,7 +10,7 @@ export class JugadoresComponent implements OnInit {
   constructor(private jugadoresFiltro :ArchivoJugadoresService) { }
 
   ngOnInit() {
-    this.jugadores  = this.jugadoresFiltro.Filtrar("perdedores","jugadores/");
+    this.jugadores  = this.jugadoresFiltro.Filtrar("todos","jugadores/");
   }
 
 }
