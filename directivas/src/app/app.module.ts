@@ -7,6 +7,7 @@ import { PruebaComponent } from './componentes/prueba/prueba.component';
 import { DirectivaDirective } from './directivas/directiva.directive';
 import { DirectivadosDirective } from './directivas/directivados.directive';
 import { DirectivatresDirective } from './directivas/directivatres.directive';
+import { DirectivaCuatroDirective } from './directivas/directiva-cuatro.directive';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { DirectivatresDirective } from './directivas/directivatres.directive';
     PruebaComponent,
     DirectivaDirective,
     DirectivadosDirective,
-    DirectivatresDirective
+    DirectivatresDirective,
+    DirectivaCuatroDirective
   ],
   imports: [
     BrowserModule
