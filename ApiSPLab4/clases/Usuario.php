@@ -117,7 +117,8 @@
             return false;
         }
         static function VerificarEstado($id){
-            return (self::GetById($id))->habilitado == 1;     
+            $user = self::GetById($id);
+            return $user->habilitado == 1;     
         }
     }
 ?>

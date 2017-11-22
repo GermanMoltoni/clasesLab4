@@ -17,6 +17,7 @@ import { RutasModule } from './modulos/rutas/rutas.module';
 import { JwtModule } from './modulos/jwt/jwt.module';
 
 import { LoginComponent } from './componentes/login/login.component';
+import { UsuariosService }  from './servicios/usuarios/usuarios.service';
 
 import { WsService }  from './servicios/ws/ws.service';
 import { AuthService } from './servicios/auth/auth.service';
@@ -39,7 +40,7 @@ import { VerificarJwtService } from './servicios/verificar-jwt/verificar-jwt.ser
       libraries: ["places"]
     }),RutasModule,JwtModule
   ],
-  providers: [GoogleMapsAPIWrapper,    WsService,
+  providers: [GoogleMapsAPIWrapper,UsuariosService,WsService,
     AuthService,
     VerificarJwtService],
   bootstrap: [AppComponent],

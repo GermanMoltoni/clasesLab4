@@ -17,7 +17,7 @@ $config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
 $config['determineRouteBeforeAppMiddleware'] = true;
 $app = new \Slim\App(["settings" => $config]);
-
+$app->add(\MWCORS::class . ':HabilitarCORS4200');
 $app->post('/login',\LoginApi::class.':Login')->add(\FormMDW::class.':FormLogin');
 $app->group('/usuario',function (){
     $this->post('', \UsuarioApi::class .':AltaApi')

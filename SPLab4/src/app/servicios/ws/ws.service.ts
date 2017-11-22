@@ -10,7 +10,7 @@ import { AuthHttp } from 'angular2-jwt';
 @Injectable()
 export class WsService {
 
-  url: string = 'http://192.168.64.2/api.php/';
+  url: string = '';//'http://germanmoltoni.esy.es/';
 
   constructor(public http: Http, private authHttp: AuthHttp)
   {
@@ -28,10 +28,9 @@ export class WsService {
     .then( this.extractData )
     .catch( this.handleError );
   }
-post(data: Object)
+  post(url:string,data: Object)
   {
-    console.log(data)
-    return this.http.post(this.url+"login", data)
+    return this.http.post(url, data)
     .toPromise()
     .then( this.extractData )
     .catch( this.handleError );
@@ -51,13 +50,13 @@ post(data: Object)
 
   private extractData(res: Response) {
     let body = res.json();    
-    
+    console.log(body);
     return body || { };
   }
 
   private handleError (error: Response | any) {
     // In a real world app, you might use a remote logging infrastructure
-    let errMsg: string;
+     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
       const err = body.error || JSON.stringify(body);
@@ -66,7 +65,7 @@ post(data: Object)
       errMsg = error.message ? error.message : error.toString();
     }
    // console.error( errMsg );
-    console.error( 'CATCH'+error );
+    console.error( 'CATCH'+error ); 
     //return Observable.throw(errMsg);
   }
 }

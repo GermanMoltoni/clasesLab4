@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute,Router }   from '@angular/router';//rutas
 import { FormsModule, Validators,FormBuilder,FormControl,FormGroup }   from '@angular/forms';
-import { WsService } from '../../servicios/ws/ws.service';
+import { UsuariosService } from '../../servicios/usuarios/usuarios.service';
 import { Usuario } from '../../clases/usuario';
 
 @Component({
@@ -16,25 +16,19 @@ export class LoginComponent implements OnInit {
     mail : this.mail,
     password:this.password
   });
-  constructor(public ws:WsService,public router: Router,public builder:FormBuilder) { }
+  constructor(public usService:UsuariosService,public router: Router,public builder:FormBuilder) { }
 
   ngOnInit() {
   }
   onClick(){
     let mail =  this.registroForm.get('mail').value;
     let password= this.registroForm.get('password').value;
-    let usuario = new Usuario(mail,password)
-    this.ws.post( {
-      datosLogin: {
-        mail: usuario.mail,
-        password: usuario.password
-    }} )
+    this.usService.Login({mail:mail,password:password})
   .then( data => {
-    console.info("data>>>",data);
     if ( data.token )
     {
       localStorage.setItem('token', data.token);
-      this.router.navigateByUrl("/pagina2");
+      this.router.navigateByUrl("/grilla");
     }
   })
   .catch( e => {
@@ -42,7 +36,7 @@ export class LoginComponent implements OnInit {
   } );
   }
   rellenar(){
-    this.registroForm.setValue({usuario:"carlos_uno",password:"123321123"});
+    this.registroForm.setValue({mail:"german@prueba",password:"123 "});
    }
 
 

@@ -23,7 +23,8 @@ export class VerificarJwtService {
         }
         else
         {
-          this.router.navigate(['/error']);
+          console.log("sin loguearse")
+          this.router.navigate(['/login']);
           // this.router.navigate(['/pages/forms/inputs']);
           return !true;
         }
