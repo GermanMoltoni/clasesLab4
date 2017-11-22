@@ -16,7 +16,7 @@ const routes: Routes = [
 
      
   ]},*/
-  {path:'grilla',component:GrillaComponent, canActivate: [VerificarJwtService],}
+  {path:'grilla',component:GrillaComponent, canActivate: [VerificarJwtService],},
   {path:'login',component:LoginComponent}
   
 ];
