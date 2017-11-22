@@ -10,10 +10,10 @@ import { Usuario } from '../../clases/usuario';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public password:FormControl = new FormControl('',[Validators.required,Validators.minLength(8)]);
-  public usuario:FormControl = new FormControl('',[Validators.required]);
+  public password:FormControl = new FormControl('',[Validators.required,Validators.minLength(3)]);
+  public mail:FormControl = new FormControl('',[Validators.required]);
   public registroForm:FormGroup = this.builder.group({
-    usuario : this.usuario,
+    mail : this.mail,
     password:this.password
   });
   constructor(public ws:WsService,public router: Router,public builder:FormBuilder) { }
@@ -21,13 +21,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   onClick(){
-    let us =  this.registroForm.get('usuario').value;
+    let mail =  this.registroForm.get('mail').value;
     let password= this.registroForm.get('password').value;
-    let usuario = new Usuario(us,password)
+    let usuario = new Usuario(mail,password)
     this.ws.post( {
       datosLogin: {
-        usuario: usuario.usuario,
-        clave: usuario.password
+        mail: usuario.mail,
+        password: usuario.password
     }} )
   .then( data => {
     console.info("data>>>",data);

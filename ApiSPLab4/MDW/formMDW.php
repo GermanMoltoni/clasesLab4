@@ -1,8 +1,7 @@
 <?php
 class FormMDW{
     public static function FormPersona($request, $response, $next){
-        echo json_encode($request->getParsedBody());
-            $data = $request->getParsedBody();
+             $data = $request->getParsedBody();
             if(!isset($data['nombre'],$data['apellido'],$data['sexo'],$data['direccion'],$data['latitud'],$data['longitud']))
                 return $response->withJson(array('msg'=>'Faltan Datos'),201);
             $persona_data=array();

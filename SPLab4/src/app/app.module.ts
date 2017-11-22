@@ -14,9 +14,13 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { MiBotonComponent } from './componentes/mi-boton/mi-boton.component';
 import { GrillaMapaComponent } from './componentes/grilla-mapa/grilla-mapa.component';
 import { RutasModule } from './modulos/rutas/rutas.module';
+import { JwtModule } from './modulos/jwt/jwt.module';
+
 import { LoginComponent } from './componentes/login/login.component';
 
-
+import { WsService }  from './servicios/ws/ws.service';
+import { AuthService } from './servicios/auth/auth.service';
+import { VerificarJwtService } from './servicios/verificar-jwt/verificar-jwt.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +37,11 @@ import { LoginComponent } from './componentes/login/login.component';
     BrowserModule,FormsModule, ReactiveFormsModule, Ng2SmartTableModule,AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAICvI-uyTaJcvApdz7vSKffB7twN6K3wk',
       libraries: ["places"]
-    }),RutasModule
+    }),RutasModule,JwtModule
   ],
-  providers: [GoogleMapsAPIWrapper],
+  providers: [GoogleMapsAPIWrapper,    WsService,
+    AuthService,
+    VerificarJwtService],
   bootstrap: [AppComponent],
   entryComponents:[MiBotonComponent]
 })

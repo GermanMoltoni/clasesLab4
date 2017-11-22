@@ -8,7 +8,8 @@ class Persona{
     public $sexo;
     public $latitud;
     public $longitud;
-    function __constructor($nombre,$apellido,$sexo,$direccion,$latitud,$longitud,$id=0){
+    public function __construct($nombre=NULL,$apellido=NULL,$sexo=NULL,$direccion=NULL,$latitud=NULL,$longitud=NULL,$id=NULL){
+        if($nombre !== NULL && $apellido !==NULL  && $direccion !==NULL && $sexo !==NULL && $latitud !==NULL && $longitud !==NULL){
         $this->nombre = $nombre;
         $this->id = $id;
         $this->apellido = $apellido;
@@ -16,6 +17,7 @@ class Persona{
         $this->direccion = $direccion;
         $this->latitud = $latitud;
         $this->longitud = $longitud;
+        }
     }
     function Alta(){
         if (self::GetByCoordenadas($this->latitud,$this->longitud) == false)
