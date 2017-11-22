@@ -30,5 +30,14 @@ class UsuarioApi extends Usuario{
         return $response->withJson(array('msg'=>'No se pudo modificar el usuario'),201);
         
     }    
+    public static function BajaApi($request, $response, $args){
+        $id = $request->getAttribute('id'); 
+        if(($user = parent::GetById($id)) != false && $user->id ==$id)
+            return $response->withJson(array('msg'=>'No se puede eliminar  usuario propio'),201);
+        if(parent::Baja($id))
+            return $response->withJson(array('msg'=>'Borrado Correctamente'),200);
+        return $response->withJson(array('msg'=>'No existe el usuario'),201);
+        
+    }
 }
 ?>

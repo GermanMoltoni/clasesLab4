@@ -20,18 +20,22 @@ $app = new \Slim\App(["settings" => $config]);
 
 $app->post('/login',\LoginApi::class.':Login')->add(\FormMDW::class.':FormLogin');
 $app->group('/usuario',function (){
-  $this->post('', \UsuarioApi::class .':AltaApi')
+    $this->post('', \UsuarioApi::class .':AltaApi')
         ->add(\MDWVerificador::class.':VerificarUsuarioDup')
-  ->add(\FormMDW::class.':FormUsuario');
-  $this->get('', \UsuarioApi::class .':ListarApi')->add(\FormMDW::class.':GetParamId');
-  
+        ->add(\FormMDW::class.':FormUsuario');
+    $this->get('', \UsuarioApi::class .':ListarApi')->add(\FormMDW::class.':GetParamId');
+    $this->delete('', \UsuarioApi::class .':BajaApi')->add(\FormMDW::class.':ParamGet');
+    $this->post('/modificar', \UsuarioApi::class .':ModificarApi')
+        ->add(\FormMDW::class.':ModifFormUser');  
 });
 $app->group('/personas',function (){
-  $this->post('', \PersonaApi::class .':AltaApi')
-        ->add(\MDWVerificador::class.':VerificarPersonaDup')
-  ->add(\FormMDW::class.':FormPersona');
-  $this->get('', \PersonaApi::class . ':ListarApi')->add(\FormMDW::class.':GetParamId');
-  
+    $this->post('', \PersonaApi::class .':AltaApi')
+    ->add(\MDWVerificador::class.':VerificarPersonaDup')
+    ->add(\FormMDW::class.':FormPersona');
+$this->get('', \PersonaApi::class .':ListarApi')->add(\FormMDW::class.':GetParamId');
+$this->delete('', \PersonaApi::class .':BajaApi')->add(\FormMDW::class.':ParamGet');
+$this->post('/modificar', \PersonaApi::class .':ModificarApi')
+    ->add(\FormMDW::class.':ModifFormPersona');  
 })->add(\MDWJwt::class.':VerificarAcceso');
  
 $app->run();

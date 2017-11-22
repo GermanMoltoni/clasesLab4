@@ -27,6 +27,17 @@ class FormMDW{
             $persona_data['direccion'] = filter_var($data['direccion'], FILTER_SANITIZE_STRING);
             return $next($request->withAttribute('persona',$persona_data), $response);
     }
+    public static function ModifFormUsuario($request, $response, $next){
+        $data = $request->getParsedBody();
+        if(!isset($data['id'],$data['mail'],$data['usuario'],$data['password']))
+            return $response->withJson(array('msg'=>'Faltan Datos'),201);
+        $user_data=array();
+        $user_data['id'] = filter_var($data['id'], FILTER_SANITIZE_STRING);
+        $user_data['mail'] = filter_var($data['mail'], FILTER_SANITIZE_STRING);
+        $user_data['usuario'] = filter_var($data['usuario'], FILTER_SANITIZE_STRING);
+        $user_data['password'] = filter_var($data['password'], FILTER_SANITIZE_STRING);
+        return $next($request->withAttribute('usuario',$user_data), $response);
+}
     public static function FormLogin($request, $response, $next){
             $data = $request->getParsedBody();
             if(!isset($data['mail'],$data['password']))

@@ -29,6 +29,14 @@ class PersonaApi extends Persona{
             return $response->withJson(array('msg'=>'Modificado Correctamente'),200);
         return $response->withJson(array('msg'=>'No se pudo modificar la persona'),201);
         
-    }    
+    } 
+    public static function BajaApi($request, $response, $args){
+        $id = $request->getAttribute('id'); 
+        if(($persona = parent::GetById($id)) == false)
+            return $response->withJson(array('msg'=>'No existe la persona'),201);
+        if(parent::Baja($id))
+            return $response->withJson(array('msg'=>'Borrada Correctamente'),200);
+        
+    }   
 }
 ?>
