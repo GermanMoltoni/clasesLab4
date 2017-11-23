@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-mi-boton',
@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mi-boton.component.css']
 })
 export class MiBotonComponent implements OnInit {
-
+  renderValue: string;
+  
+    @Input() value: string | number;
+    @Input() rowData: any;
   constructor() { }
 
   ngOnInit() {

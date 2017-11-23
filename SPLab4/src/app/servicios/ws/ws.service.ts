@@ -10,7 +10,7 @@ import { AuthHttp } from 'angular2-jwt';
 @Injectable()
 export class WsService {
 
-  url: string = '';//'http://germanmoltoni.esy.es/';
+  url: string = 'http://192.168.64.2/api.php/';//'http://germanmoltoni.esy.es/';
 
   constructor(public http: Http, private authHttp: AuthHttp)
   {
@@ -21,36 +21,27 @@ export class WsService {
    * Metodo HTTP nativo
    * @param user 
    */
-  get(user: Object)
+  get(path:string,user?: Object)
   {
-    return this.http.get(this.url, user)
-    .toPromise()
-    .then( this.extractData )
-    .catch( this.handleError );
+    return this.http.get(this.url+path, user).map(this.extractData);
   }
-  post(url:string,data: Object)
+  post(path:string,data: Object)
   {
-    return this.http.post(url, data)
-    .toPromise()
-    .then( this.extractData )
-    .catch( this.handleError );
+    return this.http.post(this.url+path, data)
+    .map( this.extractData );
   }
   /**
    * Wrapper de HTTP que envia el token en la cabecera.
    * Para hacer peticines autenticado.
    * @param user 
    */
-  getJwt(url, user: Object)
+  getJwt(path, user?: Object)
   {
-    return this.authHttp.get(url, user)
-    .toPromise()
-    .then( this.extractData )
-    .catch( this.handleError );
+    return this.authHttp.get(this.url+path, user).map(this.extractData);
   }
 
   private extractData(res: Response) {
     let body = res.json();    
-    console.log(body);
     return body || { };
   }
 

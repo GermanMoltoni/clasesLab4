@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Persona} from '../../clases/persona';
+import {PersonaService} from '../../servicios/persona/persona.service';
 
 @Component({
   selector: 'app-grilla-mapa',
@@ -6,18 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grilla-mapa.component.css']
 })
 export class GrillaMapaComponent implements OnInit {
-  public datos=[
-    {
-      nombre:'Martin',
-      apellido:'prueba',
-      direccion:'avellaneda 34',
-      sexo:'M',
-      coordenadas:{lat:-34.603722,lng:-58.381592}
-    }
-  ];
-  constructor() { }
+  
+  public datos:Persona[];
+  constructor(public personaService:PersonaService) {
+    this.datos
+   }
 
   ngOnInit() {
+    this.personaService.getLista().subscribe(res=>{this.datos = res;})
   }
 
 }

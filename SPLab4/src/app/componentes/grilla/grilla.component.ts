@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import { MiBotonComponent } from '../mi-boton/mi-boton.component';
+import { SexoPipe } from '../../pipes/sexo.pipe';
 
 @Component({
   selector: 'app-grilla',
@@ -9,6 +10,7 @@ import { MiBotonComponent } from '../mi-boton/mi-boton.component';
 })
 export class GrillaComponent implements OnInit {
   @Input() datos:any[];
+
   public static optionsCsv = { 
     fieldSeparator: ',',
     quoteStrings: '"',
@@ -37,18 +39,19 @@ export class GrillaComponent implements OnInit {
         editable:false,
         title: 'Sexo',
         valuePrepareFunction: (value) => { 
-          return 'asd'
+          let pipe = new SexoPipe();
+          return pipe.transform(value);
         }
       },
       direccion:{
         title:'Dirección'
       },
-      coordenadas:{
-        title:'Coordenadas',
-        valuePrepareFunction: (value) => { 
-          console.log(value)
-          return 'lat:'+value.lat+' long:'+value.lng;
-        }
+      latitud:{
+        title:'latitud'
+      },
+      longitud:{
+        title:'longitud'
+        
       },
       button:{
         title:'Editar',

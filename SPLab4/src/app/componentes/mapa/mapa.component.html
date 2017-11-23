@@ -1,7 +1,8 @@
-<sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom"  >
-  <sebm-google-map-marker *ngFor='let dato of datos' [latitude]="dato.coordenadas.lat" [longitude]="dato.coordenadas.lng" >
+<sebm-google-map [latitude]="latitud" [longitude]="longitud" [scrollwheel]="false" [zoom]="zoom"  >
+  <sebm-google-map-marker *ngFor='let dato of datos ' [latitude]="dato.latitud" [longitude]="dato.longitud" >
     <sebm-google-map-info-window>
       <strong>{{dato.nombre}}</strong>
     </sebm-google-map-info-window>
   </sebm-google-map-marker> 
 </sebm-google-map>
+ 

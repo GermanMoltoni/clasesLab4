@@ -15,13 +15,29 @@ import { MiBotonComponent } from './componentes/mi-boton/mi-boton.component';
 import { GrillaMapaComponent } from './componentes/grilla-mapa/grilla-mapa.component';
 import { RutasModule } from './modulos/rutas/rutas.module';
 import { JwtModule } from './modulos/jwt/jwt.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './componentes/login/login.component';
+import { PersonaService }  from './servicios/persona/persona.service';
 import { UsuariosService }  from './servicios/usuarios/usuarios.service';
 
 import { WsService }  from './servicios/ws/ws.service';
 import { AuthService } from './servicios/auth/auth.service';
 import { VerificarJwtService } from './servicios/verificar-jwt/verificar-jwt.service';
+import { MenuPrincipalComponent } from './componentes/menu-principal/menu-principal.component';
+import { MenuComponent } from './componentes/menu/menu.component';
+import { PaginaPrincipalComponent } from './componentes/pagina-principal/pagina-principal.component';
+import { PaginaSecundariaComponent } from './componentes/pagina-secundaria/pagina-secundaria.component';
+import { ErrorComponent } from './componentes/error/error.component';
+import { MiBotonDirective } from './directivas/mi-boton/mi-boton.directive';
+import {MatButtonModule, MatFormField} from '@angular/material';
+import {MatDialogModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+
+import { ModalComponent } from './componentes/modal/modal.component';
+import { MiFormularioDirective } from './directivas/mi-formulario/mi-formulario.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,18 +48,27 @@ import { VerificarJwtService } from './servicios/verificar-jwt/verificar-jwt.ser
     SexoPipe,
     MiBotonComponent,
     GrillaMapaComponent,
-    LoginComponent
+    LoginComponent,
+    MenuPrincipalComponent,
+    MenuComponent,
+    PaginaPrincipalComponent,
+    PaginaSecundariaComponent,
+    ErrorComponent,
+    MiBotonDirective,
+    ModalComponent,
+    MiFormularioDirective
   ],
   imports: [
     BrowserModule,FormsModule, ReactiveFormsModule, Ng2SmartTableModule,AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAICvI-uyTaJcvApdz7vSKffB7twN6K3wk',
       libraries: ["places"]
-    }),RutasModule,JwtModule
+    }),RutasModule,JwtModule,MatButtonModule,MatDialogModule,BrowserAnimationsModule,MatFormFieldModule,MatInputModule,
+    MatRadioModule
   ],
   providers: [GoogleMapsAPIWrapper,UsuariosService,WsService,
     AuthService,
-    VerificarJwtService],
+    VerificarJwtService,PersonaService],
   bootstrap: [AppComponent],
-  entryComponents:[MiBotonComponent]
+  entryComponents:[MiBotonComponent,ModalComponent]
 })
 export class AppModule { }

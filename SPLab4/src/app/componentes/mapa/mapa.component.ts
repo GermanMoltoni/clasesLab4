@@ -8,9 +8,11 @@ import { Component, OnInit,Input} from '@angular/core';
 export class MapaComponent implements OnInit {
  @Input() public datos;
   public zoom: number;
+  public latitud = -34.599722222222;
+  public longitud = -58.381944444444;
   constructor() {}
   ngOnInit() {
-    this.zoom = 3;
+    this.zoom = 4;
   }
    
 }

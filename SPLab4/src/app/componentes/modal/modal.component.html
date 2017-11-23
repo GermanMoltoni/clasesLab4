@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Modificacioón de Persona</h1>
+<form [appMiFormulario]="data">
+<mat-dialog-content style="background-color:white;">
+  
+  <div class="row">
+    <div class="col-md-4">
+        <mat-form-field>
+            <input matInput  id='nombre' placeholder="Nombre">
+          </mat-form-field>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <mat-form-field >
+            <input matInput placeholder="Apellido">
+          </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+          <mat-form-field >
+              <input matInput placeholder="Latitud">
+            </mat-form-field>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+          <mat-form-field >
+              <input matInput placeholder="Longitud">
+            </mat-form-field>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+      <mat-form-field >
+          <input matInput placeholder="Dirección">
+        </mat-form-field>
+      </div>
+      <div class="col-md-1"></div>
+      
+      <div class="col-md-4">
+        <br>
+          <mat-radio-group>
+              <mat-radio-button value="1">M</mat-radio-button>
+              <mat-radio-button value="2">F</mat-radio-button>
+            </mat-radio-group>
+      </div>
+   
+  </div>
+
+    
+    
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="accent" (click)="modificar()">Modificar</button>
+  <button mat-button color="warn" type="button" mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>
+</form>

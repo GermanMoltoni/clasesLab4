@@ -18,14 +18,12 @@ export class VerificarJwtService {
 
         if ( this.auth.isLogued() )
         {
-
           return true;
         }
         else
         {
           console.log("sin loguearse")
           this.router.navigate(['/login']);
-          // this.router.navigate(['/pages/forms/inputs']);
           return !true;
         }
   }
