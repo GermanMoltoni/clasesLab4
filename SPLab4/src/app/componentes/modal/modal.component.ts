@@ -1,5 +1,5 @@
 import { Component, OnInit,Inject,Output,EventEmitter } from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {Persona} from '../../clases/persona';
 @Component({
   selector: 'app-modal',
@@ -8,12 +8,16 @@ import {Persona} from '../../clases/persona';
 })
 export class ModalComponent implements OnInit {
 @Output() persona:EventEmitter<Persona> = new EventEmitter<Persona>();
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { 
+  constructor(      public dialogRef: MatDialogRef<ModalComponent>,
+,    @Inject(MAT_DIALOG_DATA) public data: any) { 
   }
   
   ngOnInit() {
   }
   modificar(){
-    this.persona.emit();
+     
+   
+      this.dialogRef.close();
+ 
   }
 }

@@ -41,5 +41,9 @@ export class MiBotonDirective {
         width:"50%",
         data:this.persona
       });
+      this.fileNameDialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+         result;
+      });
     }
   }

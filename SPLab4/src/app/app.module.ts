@@ -60,7 +60,7 @@ import { MiFormularioDirective } from './directivas/mi-formulario/mi-formulario.
   ],
   imports: [
     BrowserModule,FormsModule, ReactiveFormsModule, Ng2SmartTableModule,AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAICvI-uyTaJcvApdz7vSKffB7twN6K3wk',
+      apiKey: '',
       libraries: ["places"]
     }),RutasModule,JwtModule,MatButtonModule,MatDialogModule,BrowserAnimationsModule,MatFormFieldModule,MatInputModule,
     MatRadioModule
