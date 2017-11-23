@@ -6,6 +6,7 @@ class MDWJwt{
         $token = $request->getHeader('Authorization');
         $token = $token!= null?$token[0]:null;        
         try{ 
+            $token =trim(trim($token,'Bearer'));
             AuthJWT::CheckToken($token);
             $data = AuthJWT::GetData($token);
             if(Usuario::VerificarEstado($data->id))
@@ -14,7 +15,7 @@ class MDWJwt{
         }
         catch(Exception $e)
         {   
-            return  $response->withJson(array('error'=>"Se requiere iniciar Sesion"),201);   
+            return  $response->withJson(array('error'=>$e),201);   
         }
     }
 }

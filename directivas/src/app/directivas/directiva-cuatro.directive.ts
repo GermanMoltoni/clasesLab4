@@ -9,9 +9,7 @@ export class DirectivaCuatroDirective {
 @Input() FuncionHover: Function;
 @Input() FuncionOut: Function;
   constructor(private obj: ElementRef, private renderizador: Renderer2) { }
-  ngOnDestroy(){
 
-  }
   ngOnInit(){
     this.FuncionHover = this.renderizador.listen(this.obj.nativeElement,'mouseover',e=>{
       this.renderizador.setStyle(this.obj.nativeElement, 'backgroundColor',  'pink' );

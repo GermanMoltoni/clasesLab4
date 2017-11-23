@@ -1,46 +1,46 @@
 <h1 mat-dialog-title>Modificacioón de Persona</h1>
-<form [appMiFormulario]="data">
+<form >
 <mat-dialog-content style="background-color:white;">
   
   <div class="row">
     <div class="col-md-4">
         <mat-form-field>
-            <input matInput  id='nombre' placeholder="Nombre">
+            <input matInput  [appMiFormulario]="data.nombre" placeholder="Nombre">
           </mat-form-field>
     </div>
     <div class="col-md-1"></div>
     <div class="col-md-4">
         <mat-form-field >
-            <input matInput placeholder="Apellido">
+            <input matInput [appMiFormulario]="data.apellido" placeholder="Apellido">
           </mat-form-field>
     </div>
   </div>
   <div class="row">
       <div class="col-md-4">
           <mat-form-field >
-              <input matInput  [value]="persona.latitud" placeholder="Latitud">
+              <input matInput  [appMiFormulario]="data.latitud" placeholder="Latitud">
             </mat-form-field>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-4">
           <mat-form-field >
-              <input matInput placeholder="Longitud">
+              <input matInput [appMiFormulario]="data.longitud" placeholder="Longitud">
             </mat-form-field>
       </div>
   </div>
   <div class="row">
       <div class="col-md-4">
       <mat-form-field >
-          <input matInput placeholder="Dirección">
+          <input matInput [appMiFormulario]="data.direccion" placeholder="Dirección">
         </mat-form-field>
       </div>
       <div class="col-md-1"></div>
       
       <div class="col-md-4">
         <br>
-          <mat-radio-group>
-              <mat-radio-button value="1">M</mat-radio-button>
-              <mat-radio-button value="2">F</mat-radio-button>
+          <mat-radio-group [appMiFormulario]="data.sexo">
+              <mat-radio-button value="M">M</mat-radio-button>
+              <mat-radio-button value="F">F</mat-radio-button>
             </mat-radio-group>
       </div>
    

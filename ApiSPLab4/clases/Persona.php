@@ -60,16 +60,16 @@ class Persona{
         $consulta->bindValue(':latitud',$latitud, PDO::PARAM_STR);
         $consulta->bindValue(':longitud',$longitud, PDO::PARAM_STR);
         $consulta->execute();
-        $retorno = $consulta->fetchAll(PDO::FETCH_CLASS,"Persona");
+        $retorno = $consulta->fetchAll(PDO::FETCH_OBJ);
         if(count($retorno) == 0)
             return false;
         return $retorno[0];
     }
      function Modificar(){
-        if (($user = self::GetUsuarioPorCoordnadas($this->latitud,$this->longitud)) != false)
+        if (($user = self::GetByCoordenadas($this->latitud,$this->longitud)) != false)
         {
             $objDB = AccesoDatos::DameUnObjetoAcceso();
-            $consulta = $objDB->RetornarConsulta("UPDATE `jugadores` SET `mail`=:mail,`sexo`=:sexo,`password`=:password,`usuario`=:usuario WHERE id=:id");
+            $consulta = $objDB->RetornarConsulta("UPDATE `personas` SET `nombre`=:nombre,`sexo`=:sexo,`apellido`=:apellido,`direccion`=:direccion,`latitud`=:latitud,`longitud`=:longitud WHERE id=:id");
             $consulta->bindValue(':sexo',$this->sexo, PDO::PARAM_STR);
             $consulta->bindValue(':longitud',$this->longitud, PDO::PARAM_STR);
             $consulta->bindValue(':nombre',$this->nombre, PDO::PARAM_STR);

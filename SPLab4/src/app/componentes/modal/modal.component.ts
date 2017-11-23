@@ -9,15 +9,12 @@ import {Persona} from '../../clases/persona';
 export class ModalComponent implements OnInit {
 @Output() persona:EventEmitter<Persona> = new EventEmitter<Persona>();
   constructor(      public dialogRef: MatDialogRef<ModalComponent>,
-,    @Inject(MAT_DIALOG_DATA) public data: any) { 
+   @Inject(MAT_DIALOG_DATA) public data: any) { 
   }
   
   ngOnInit() {
   }
   modificar(){
-     
-   
       this.dialogRef.close();
- 
   }
 }
