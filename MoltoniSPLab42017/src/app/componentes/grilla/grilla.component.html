@@ -1,0 +1,24 @@
+<div class="col-md-8 col-lg-8">
+  <table class="table table-condensed table-striped">
+     <thead>
+     <tr>
+         <th>Nombre</th>
+         <th>Legajo</th>
+         <th>Tipo</th>
+         <th>Edad</th>
+         <th>Foto</th>
+         <th>Borrar</th>
+     </tr>
+     </thead>
+     <tbody>
+         <tr *ngFor='let empleado of empleados | async'>
+             <td>{{empleado.nombre}}</td>
+             <td>{{empleado.legajo}}</td>
+             <td><p [appTipo]='empleado.tipo'>{{empleado.tipo}}</p></td>
+             <td>{{empleado.edad | edad}}</td>
+             <td><img src='../../../assets/fotos/bart.png' height="50" width="50"></td>
+             <td><app-mi-boton [id]='empleado.id'></app-mi-boton></td>
+            </tr>
+     </tbody>
+ </table>
+</div>
